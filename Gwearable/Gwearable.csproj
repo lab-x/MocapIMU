@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DE3D150F-D038-491F-B98D-4F0A9CEC59FE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gwearable</RootNamespace>
+    <AssemblyName>Gwearable</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8E46F5B76E623A5C00979D66F31D747374B98200</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Gwearable_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo - backup.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AppControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\AppControl.dll</HintPath>
+    </Reference>
+    <Reference Include="csgl">
+      <HintPath>.\csgl.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomControls, Version=1.0.5648.30487, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\CustomControls.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatTabControl, Version=1.0.5644.31908, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\FlatTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="GlacialList, Version=1.0.5646.26527, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\GlacialList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Until\CustomFile.cs" />
+    <Compile Include="Until\MouseControl.cs" />
+    <Compile Include="Until\SegmentCollection.cs" />
+    <Compile Include="Until\Segment.cs" />
+    <Compile Include="Until\Matrix.cs" />
+    <Compile Include="Until\ArrayData.cs" />
+    <Compile Include="Until\Euler.cs" />
+    <Compile Include="Form\TPoseAPoseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TPoseAPoseForm.designer.cs">
+      <DependentUpon>TPoseAPoseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Until\BVH.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form\ScreenViewForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\ScreenViewForm.Designer.cs">
+      <DependentUpon>ScreenViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Until\EnumPort.cs" />
+    <Compile Include="Until\Global.cs" />
+    <Compile Include="Until\MS3D.cs" />
+    <Compile Include="Until\MS3DSharp.cs" />
+    <Compile Include="Until\OpenGL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Until\OpenGLEX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Until\ParseData.cs" />
+    <Compile Include="Until\CQuaternion.cs" />
+    <Compile Include="Form\BodyInforForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\BodyInforForm.Designer.cs">
+      <DependentUpon>BodyInforForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ModelsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\ModelsForm.Designer.cs">
+      <DependentUpon>ModelsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\PlayBackOptForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\PlayBackOptForm.Designer.cs">
+      <DependentUpon>PlayBackOptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Until\defineSerialPort.cs" />
+    <Compile Include="Form\WorkDirForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\WorkDirForm.Designer.cs">
+      <DependentUpon>WorkDirForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\DeviceOptForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\DeviceOptForm.Designer.cs">
+      <DependentUpon>DeviceOptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\LinkInfoForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\LinkInfoForm.Designer.cs">
+      <DependentUpon>LinkInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\OpenGLOptForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\OpenGLOptForm.Designer.cs">
+      <DependentUpon>OpenGLOptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Until\Token.cs" />
+    <EmbeddedResource Include="Form\BodyInforForm.resx">
+      <DependentUpon>BodyInforForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ModelsForm.resx">
+      <DependentUpon>ModelsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\PlayBackOptForm.resx">
+      <DependentUpon>PlayBackOptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ScreenViewForm.resx">
+      <DependentUpon>ScreenViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\WorkDirForm.resx">
+      <DependentUpon>WorkDirForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\DeviceOptForm.resx">
+      <DependentUpon>DeviceOptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LinkInfoForm.resx">
+      <DependentUpon>LinkInfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\OpenGLOptForm.resx">
+      <DependentUpon>OpenGLOptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TPoseAPoseForm.resx">
+      <DependentUpon>TPoseAPoseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\gravity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\calibrationwizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\fileopen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\poweroff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\record.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\zeroout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\addfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\listfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\openfloder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\closebtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\backgrounds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\bodyitem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\index.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\index2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\bodyinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\linkerror.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\linksucc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\foreimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\realimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\button2back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\blue17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\green17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\red17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\yellow17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\linksemisucc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\firstframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\preframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\noloop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\playback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\nextframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\lastframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\loop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\play_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\btn_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\close_back_hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\close_back_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\close_back_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\ground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\ground_back_hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\ground_back_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\ground_back_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\splashform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\menu_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\pause_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\scrollbar\downarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\scrollbar\ThumbBottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\scrollbar\ThumbMiddle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\scrollbar\ThumbSpanBottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\scrollbar\ThumbSpanTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\scrollbar\ThumbTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\scrollbar\uparrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\gravity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\wenjian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\luzhi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\lianjie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\guanbi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\dianyuanguanbi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\jiaozhun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\zero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\listfile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\addfile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\openfloder1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\noloop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\loop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\newstyle\marker.png" />
+    <None Include="image\Tpose.png" />
+    <None Include="image\APose.png" />
+    <None Include="image\SPose.png" />
+    <None Include="image\Xpose.png" />
+    <Content Include="logo - backup.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
