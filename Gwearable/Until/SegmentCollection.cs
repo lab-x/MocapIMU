@@ -310,6 +310,7 @@ namespace Gwearable
 
         public string GetSendString()
         {
+           // Console.WriteLine("EnableSmooth:"+ Global.EnableSmooth+"Smooth:"+Global.Smooth + "    ParaPrev:"+Global.Smooth_PrevParam + " ParaThis"+Global.Smooth_ThisParam);
             string str;
             
             #region Switch between Absolute and Dead Reckoning

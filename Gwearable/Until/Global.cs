@@ -41,6 +41,11 @@ namespace Gwearable
         /************************************************************************/
         /* HIP POSITION and LEVERAGE PEDO    +    ABSOLUTE POSITION AIDING      */
         /************************************************************************/
+        public static bool Smooth = false;
+        public static bool EnableSmooth = false;
+        public static float Smooth_PrevParam = 3.0f;
+        public static float Smooth_ThisParam = 1.0f;
+
         public static float height=1.5f;
         public static DateTime SaveDataStart = DateTime.Now;
         public static TimeSpan SaveDataElps = DateTime.Now - SaveDataStart;

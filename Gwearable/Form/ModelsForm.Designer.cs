@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            GlacialComponents.Controls.GLColumn glColumn1 = new GlacialComponents.Controls.GLColumn();
-            GlacialComponents.Controls.GLColumn glColumn2 = new GlacialComponents.Controls.GLColumn();
-            GlacialComponents.Controls.GLColumn glColumn3 = new GlacialComponents.Controls.GLColumn();
-            GlacialComponents.Controls.GLItem glItem1 = new GlacialComponents.Controls.GLItem();
-            GlacialComponents.Controls.GLSubItem glSubItem1 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem2 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem3 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLItem glItem2 = new GlacialComponents.Controls.GLItem();
-            GlacialComponents.Controls.GLSubItem glSubItem4 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem5 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem6 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLItem glItem3 = new GlacialComponents.Controls.GLItem();
-            GlacialComponents.Controls.GLSubItem glSubItem7 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem8 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem9 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLItem glItem4 = new GlacialComponents.Controls.GLItem();
-            GlacialComponents.Controls.GLSubItem glSubItem10 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem11 = new GlacialComponents.Controls.GLSubItem();
-            GlacialComponents.Controls.GLSubItem glSubItem12 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLColumn glColumn4 = new GlacialComponents.Controls.GLColumn();
+            GlacialComponents.Controls.GLColumn glColumn5 = new GlacialComponents.Controls.GLColumn();
+            GlacialComponents.Controls.GLColumn glColumn6 = new GlacialComponents.Controls.GLColumn();
+            GlacialComponents.Controls.GLItem glItem5 = new GlacialComponents.Controls.GLItem();
+            GlacialComponents.Controls.GLSubItem glSubItem13 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem14 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem15 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLItem glItem6 = new GlacialComponents.Controls.GLItem();
+            GlacialComponents.Controls.GLSubItem glSubItem16 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem17 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem18 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLItem glItem7 = new GlacialComponents.Controls.GLItem();
+            GlacialComponents.Controls.GLSubItem glSubItem19 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem20 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem21 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLItem glItem8 = new GlacialComponents.Controls.GLItem();
+            GlacialComponents.Controls.GLSubItem glSubItem22 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem23 = new GlacialComponents.Controls.GLSubItem();
+            GlacialComponents.Controls.GLSubItem glSubItem24 = new GlacialComponents.Controls.GLSubItem();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.closebtn = new System.Windows.Forms.Button();
@@ -236,8 +236,24 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.Smooth = new System.Windows.Forms.CheckBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.GPSData = new System.Windows.Forms.CheckBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.GPSX = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.GPSY = new System.Windows.Forms.Label();
+            this.GPSZ = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.标定 = new System.Windows.Forms.TabPage();
+            this.label65 = new System.Windows.Forms.Label();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
             this.SelectStation = new System.Windows.Forms.GroupBox();
             this.radioButton31 = new System.Windows.Forms.RadioButton();
             this.radioButton32 = new System.Windows.Forms.RadioButton();
@@ -248,6 +264,7 @@
             this.firstlab = new System.Windows.Forms.Label();
             this.firstbtn = new System.Windows.Forms.Button();
             this.secondlab = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
             this.thirdlab = new System.Windows.Forms.Label();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -284,18 +301,6 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.GPSData = new System.Windows.Forms.CheckBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.GPSZ = new System.Windows.Forms.Label();
-            this.GPSY = new System.Windows.Forms.Label();
-            this.GPSX = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.label65 = new System.Windows.Forms.Label();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flatTabControl1.SuspendLayout();
@@ -340,6 +345,7 @@
             this.groupBox7.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox13.SuspendLayout();
+            this.groupBox14.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.标定.SuspendLayout();
             this.SelectStation.SuspendLayout();
@@ -347,7 +353,6 @@
             this.MEMS.SuspendLayout();
             this.Move.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -2372,34 +2377,34 @@
             this.glacialList1.AutoHeight = true;
             this.glacialList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(81)))), ((int)(((byte)(90)))));
             this.glacialList1.BackgroundStretchToFit = true;
-            glColumn1.ActivatedEmbeddedType = GlacialComponents.Controls.GLActivatedEmbeddedTypes.None;
-            glColumn1.CheckBoxes = false;
-            glColumn1.ImageIndex = -1;
-            glColumn1.Name = "Column1";
-            glColumn1.NumericSort = false;
-            glColumn1.Text = "ID";
-            glColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            glColumn1.Width = 40;
-            glColumn2.ActivatedEmbeddedType = GlacialComponents.Controls.GLActivatedEmbeddedTypes.None;
-            glColumn2.CheckBoxes = false;
-            glColumn2.ImageIndex = -1;
-            glColumn2.Name = "Column2";
-            glColumn2.NumericSort = false;
-            glColumn2.Text = "Name";
-            glColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            glColumn2.Width = 100;
-            glColumn3.ActivatedEmbeddedType = GlacialComponents.Controls.GLActivatedEmbeddedTypes.None;
-            glColumn3.CheckBoxes = false;
-            glColumn3.ImageIndex = -1;
-            glColumn3.Name = "Column3";
-            glColumn3.NumericSort = false;
-            glColumn3.Text = "Selected";
-            glColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            glColumn3.Width = 100;
+            glColumn4.ActivatedEmbeddedType = GlacialComponents.Controls.GLActivatedEmbeddedTypes.None;
+            glColumn4.CheckBoxes = false;
+            glColumn4.ImageIndex = -1;
+            glColumn4.Name = "Column1";
+            glColumn4.NumericSort = false;
+            glColumn4.Text = "ID";
+            glColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            glColumn4.Width = 40;
+            glColumn5.ActivatedEmbeddedType = GlacialComponents.Controls.GLActivatedEmbeddedTypes.None;
+            glColumn5.CheckBoxes = false;
+            glColumn5.ImageIndex = -1;
+            glColumn5.Name = "Column2";
+            glColumn5.NumericSort = false;
+            glColumn5.Text = "Name";
+            glColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            glColumn5.Width = 100;
+            glColumn6.ActivatedEmbeddedType = GlacialComponents.Controls.GLActivatedEmbeddedTypes.None;
+            glColumn6.CheckBoxes = false;
+            glColumn6.ImageIndex = -1;
+            glColumn6.Name = "Column3";
+            glColumn6.NumericSort = false;
+            glColumn6.Text = "Selected";
+            glColumn6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            glColumn6.Width = 100;
             this.glacialList1.Columns.AddRange(new GlacialComponents.Controls.GLColumn[] {
-            glColumn1,
-            glColumn2,
-            glColumn3});
+            glColumn4,
+            glColumn5,
+            glColumn6});
             this.glacialList1.ControlStyle = GlacialComponents.Controls.GLControlStyles.SuperFlat;
             this.glacialList1.Dock = System.Windows.Forms.DockStyle.Top;
             this.glacialList1.FullRowSelect = true;
@@ -2417,131 +2422,131 @@
             this.glacialList1.HoverTime = 1;
             this.glacialList1.ImageList = null;
             this.glacialList1.ItemHeight = 17;
-            glItem1.BackColor = System.Drawing.Color.White;
-            glItem1.ForeColor = System.Drawing.Color.Black;
-            glItem1.RowBorderColor = System.Drawing.Color.Black;
-            glItem1.RowBorderSize = 0;
-            glSubItem1.BackColor = System.Drawing.Color.Empty;
-            glSubItem1.Checked = false;
-            glSubItem1.ForceText = false;
-            glSubItem1.ForeColor = System.Drawing.Color.Black;
-            glSubItem1.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem1.ImageIndex = -1;
-            glSubItem1.Text = "11";
-            glSubItem2.BackColor = System.Drawing.Color.Empty;
-            glSubItem2.Checked = false;
-            glSubItem2.ForceText = false;
-            glSubItem2.ForeColor = System.Drawing.Color.Black;
-            glSubItem2.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem2.ImageIndex = -1;
-            glSubItem2.Text = "11-22";
-            glSubItem3.BackColor = System.Drawing.Color.Empty;
-            glSubItem3.Checked = false;
-            glSubItem3.ForceText = false;
-            glSubItem3.ForeColor = System.Drawing.Color.Black;
-            glSubItem3.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem3.ImageIndex = -1;
-            glSubItem3.Text = "33";
-            glItem1.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
-            glSubItem1,
-            glSubItem2,
-            glSubItem3});
-            glItem1.Text = "11";
-            glItem2.BackColor = System.Drawing.Color.White;
-            glItem2.ForeColor = System.Drawing.Color.Black;
-            glItem2.RowBorderColor = System.Drawing.Color.Black;
-            glItem2.RowBorderSize = 0;
-            glSubItem4.BackColor = System.Drawing.Color.Empty;
-            glSubItem4.Checked = false;
-            glSubItem4.ForceText = false;
-            glSubItem4.ForeColor = System.Drawing.Color.Black;
-            glSubItem4.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem4.ImageIndex = -1;
-            glSubItem4.Text = "22";
-            glSubItem5.BackColor = System.Drawing.Color.Empty;
-            glSubItem5.Checked = false;
-            glSubItem5.ForceText = false;
-            glSubItem5.ForeColor = System.Drawing.Color.Black;
-            glSubItem5.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem5.ImageIndex = -1;
-            glSubItem5.Text = "";
-            glSubItem6.BackColor = System.Drawing.Color.Empty;
-            glSubItem6.Checked = false;
-            glSubItem6.ForceText = false;
-            glSubItem6.ForeColor = System.Drawing.Color.Black;
-            glSubItem6.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem6.ImageIndex = -1;
-            glSubItem6.Text = "";
-            glItem2.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
-            glSubItem4,
-            glSubItem5,
-            glSubItem6});
-            glItem2.Text = "22";
-            glItem3.BackColor = System.Drawing.Color.White;
-            glItem3.ForeColor = System.Drawing.Color.Black;
-            glItem3.RowBorderColor = System.Drawing.Color.Black;
-            glItem3.RowBorderSize = 0;
-            glSubItem7.BackColor = System.Drawing.Color.Empty;
-            glSubItem7.Checked = false;
-            glSubItem7.ForceText = false;
-            glSubItem7.ForeColor = System.Drawing.Color.Black;
-            glSubItem7.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem7.ImageIndex = -1;
-            glSubItem7.Text = "33";
-            glSubItem8.BackColor = System.Drawing.Color.Empty;
-            glSubItem8.Checked = false;
-            glSubItem8.ForceText = false;
-            glSubItem8.ForeColor = System.Drawing.Color.Black;
-            glSubItem8.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem8.ImageIndex = -1;
-            glSubItem8.Text = "";
-            glSubItem9.BackColor = System.Drawing.Color.Empty;
-            glSubItem9.Checked = false;
-            glSubItem9.ForceText = false;
-            glSubItem9.ForeColor = System.Drawing.Color.Black;
-            glSubItem9.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem9.ImageIndex = -1;
-            glSubItem9.Text = "";
-            glItem3.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
-            glSubItem7,
-            glSubItem8,
-            glSubItem9});
-            glItem3.Text = "33";
-            glItem4.BackColor = System.Drawing.Color.White;
-            glItem4.ForeColor = System.Drawing.Color.Black;
-            glItem4.RowBorderColor = System.Drawing.Color.Black;
-            glItem4.RowBorderSize = 0;
-            glSubItem10.BackColor = System.Drawing.Color.Empty;
-            glSubItem10.Checked = false;
-            glSubItem10.ForceText = false;
-            glSubItem10.ForeColor = System.Drawing.Color.Black;
-            glSubItem10.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem10.ImageIndex = -1;
-            glSubItem10.Text = "44";
-            glSubItem11.BackColor = System.Drawing.Color.Empty;
-            glSubItem11.Checked = false;
-            glSubItem11.ForceText = false;
-            glSubItem11.ForeColor = System.Drawing.Color.Black;
-            glSubItem11.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem11.ImageIndex = -1;
-            glSubItem11.Text = "";
-            glSubItem12.BackColor = System.Drawing.Color.Empty;
-            glSubItem12.Checked = false;
-            glSubItem12.ForceText = false;
-            glSubItem12.ForeColor = System.Drawing.Color.Black;
-            glSubItem12.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            glSubItem12.ImageIndex = -1;
-            glSubItem12.Text = "";
-            glItem4.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
-            glSubItem10,
-            glSubItem11,
-            glSubItem12});
-            glItem4.Text = "44";
+            glItem5.BackColor = System.Drawing.Color.White;
+            glItem5.ForeColor = System.Drawing.Color.Black;
+            glItem5.RowBorderColor = System.Drawing.Color.Black;
+            glItem5.RowBorderSize = 0;
+            glSubItem13.BackColor = System.Drawing.Color.Empty;
+            glSubItem13.Checked = false;
+            glSubItem13.ForceText = false;
+            glSubItem13.ForeColor = System.Drawing.Color.Black;
+            glSubItem13.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem13.ImageIndex = -1;
+            glSubItem13.Text = "11";
+            glSubItem14.BackColor = System.Drawing.Color.Empty;
+            glSubItem14.Checked = false;
+            glSubItem14.ForceText = false;
+            glSubItem14.ForeColor = System.Drawing.Color.Black;
+            glSubItem14.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem14.ImageIndex = -1;
+            glSubItem14.Text = "11-22";
+            glSubItem15.BackColor = System.Drawing.Color.Empty;
+            glSubItem15.Checked = false;
+            glSubItem15.ForceText = false;
+            glSubItem15.ForeColor = System.Drawing.Color.Black;
+            glSubItem15.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem15.ImageIndex = -1;
+            glSubItem15.Text = "33";
+            glItem5.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
+            glSubItem13,
+            glSubItem14,
+            glSubItem15});
+            glItem5.Text = "11";
+            glItem6.BackColor = System.Drawing.Color.White;
+            glItem6.ForeColor = System.Drawing.Color.Black;
+            glItem6.RowBorderColor = System.Drawing.Color.Black;
+            glItem6.RowBorderSize = 0;
+            glSubItem16.BackColor = System.Drawing.Color.Empty;
+            glSubItem16.Checked = false;
+            glSubItem16.ForceText = false;
+            glSubItem16.ForeColor = System.Drawing.Color.Black;
+            glSubItem16.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem16.ImageIndex = -1;
+            glSubItem16.Text = "22";
+            glSubItem17.BackColor = System.Drawing.Color.Empty;
+            glSubItem17.Checked = false;
+            glSubItem17.ForceText = false;
+            glSubItem17.ForeColor = System.Drawing.Color.Black;
+            glSubItem17.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem17.ImageIndex = -1;
+            glSubItem17.Text = "";
+            glSubItem18.BackColor = System.Drawing.Color.Empty;
+            glSubItem18.Checked = false;
+            glSubItem18.ForceText = false;
+            glSubItem18.ForeColor = System.Drawing.Color.Black;
+            glSubItem18.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem18.ImageIndex = -1;
+            glSubItem18.Text = "";
+            glItem6.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
+            glSubItem16,
+            glSubItem17,
+            glSubItem18});
+            glItem6.Text = "22";
+            glItem7.BackColor = System.Drawing.Color.White;
+            glItem7.ForeColor = System.Drawing.Color.Black;
+            glItem7.RowBorderColor = System.Drawing.Color.Black;
+            glItem7.RowBorderSize = 0;
+            glSubItem19.BackColor = System.Drawing.Color.Empty;
+            glSubItem19.Checked = false;
+            glSubItem19.ForceText = false;
+            glSubItem19.ForeColor = System.Drawing.Color.Black;
+            glSubItem19.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem19.ImageIndex = -1;
+            glSubItem19.Text = "33";
+            glSubItem20.BackColor = System.Drawing.Color.Empty;
+            glSubItem20.Checked = false;
+            glSubItem20.ForceText = false;
+            glSubItem20.ForeColor = System.Drawing.Color.Black;
+            glSubItem20.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem20.ImageIndex = -1;
+            glSubItem20.Text = "";
+            glSubItem21.BackColor = System.Drawing.Color.Empty;
+            glSubItem21.Checked = false;
+            glSubItem21.ForceText = false;
+            glSubItem21.ForeColor = System.Drawing.Color.Black;
+            glSubItem21.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem21.ImageIndex = -1;
+            glSubItem21.Text = "";
+            glItem7.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
+            glSubItem19,
+            glSubItem20,
+            glSubItem21});
+            glItem7.Text = "33";
+            glItem8.BackColor = System.Drawing.Color.White;
+            glItem8.ForeColor = System.Drawing.Color.Black;
+            glItem8.RowBorderColor = System.Drawing.Color.Black;
+            glItem8.RowBorderSize = 0;
+            glSubItem22.BackColor = System.Drawing.Color.Empty;
+            glSubItem22.Checked = false;
+            glSubItem22.ForceText = false;
+            glSubItem22.ForeColor = System.Drawing.Color.Black;
+            glSubItem22.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem22.ImageIndex = -1;
+            glSubItem22.Text = "44";
+            glSubItem23.BackColor = System.Drawing.Color.Empty;
+            glSubItem23.Checked = false;
+            glSubItem23.ForceText = false;
+            glSubItem23.ForeColor = System.Drawing.Color.Black;
+            glSubItem23.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem23.ImageIndex = -1;
+            glSubItem23.Text = "";
+            glSubItem24.BackColor = System.Drawing.Color.Empty;
+            glSubItem24.Checked = false;
+            glSubItem24.ForceText = false;
+            glSubItem24.ForeColor = System.Drawing.Color.Black;
+            glSubItem24.ImageAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            glSubItem24.ImageIndex = -1;
+            glSubItem24.Text = "";
+            glItem8.SubItems.AddRange(new GlacialComponents.Controls.GLSubItem[] {
+            glSubItem22,
+            glSubItem23,
+            glSubItem24});
+            glItem8.Text = "44";
             this.glacialList1.Items.AddRange(new GlacialComponents.Controls.GLItem[] {
-            glItem1,
-            glItem2,
-            glItem3,
-            glItem4});
+            glItem5,
+            glItem6,
+            glItem7,
+            glItem8});
             this.glacialList1.ItemWordWrap = false;
             this.glacialList1.Location = new System.Drawing.Point(3, 17);
             this.glacialList1.Name = "glacialList1";
@@ -2799,7 +2804,7 @@
             // 
             // groupBox13
             // 
-            this.groupBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(81)))), ((int)(((byte)(90)))));
+            this.groupBox13.BackColor = System.Drawing.Color.DimGray;
             this.groupBox13.Controls.Add(this.groupBox14);
             this.groupBox13.Controls.Add(this.tabControl2);
             this.groupBox13.Controls.Add(this.tabControl1);
@@ -2812,6 +2817,150 @@
             this.groupBox13.Text = "Mode Style";
             this.groupBox13.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox13_Paint);
             this.groupBox13.Enter += new System.EventHandler(this.groupBox13_Enter);
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.BackColor = System.Drawing.Color.White;
+            this.groupBox14.Controls.Add(this.Smooth);
+            this.groupBox14.Controls.Add(this.textBox17);
+            this.groupBox14.Controls.Add(this.textBox15);
+            this.groupBox14.Controls.Add(this.label66);
+            this.groupBox14.Controls.Add(this.label67);
+            this.groupBox14.Controls.Add(this.GPSData);
+            this.groupBox14.Controls.Add(this.label62);
+            this.groupBox14.Controls.Add(this.GPSX);
+            this.groupBox14.Controls.Add(this.label63);
+            this.groupBox14.Controls.Add(this.GPSY);
+            this.groupBox14.Controls.Add(this.GPSZ);
+            this.groupBox14.Controls.Add(this.label61);
+            this.groupBox14.Location = new System.Drawing.Point(495, 40);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(274, 223);
+            this.groupBox14.TabIndex = 42;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "groupBox14";
+            // 
+            // Smooth
+            // 
+            this.Smooth.AutoSize = true;
+            this.Smooth.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Smooth.Location = new System.Drawing.Point(9, 140);
+            this.Smooth.Name = "Smooth";
+            this.Smooth.Size = new System.Drawing.Size(68, 18);
+            this.Smooth.TabIndex = 43;
+            this.Smooth.Text = "Smooth";
+            this.Smooth.UseVisualStyleBackColor = true;
+            this.Smooth.CheckedChanged += new System.EventHandler(this.Smooth_CheckedChanged);
+            // 
+            // textBox17
+            // 
+            this.textBox17.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox17.Location = new System.Drawing.Point(96, 195);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(40, 22);
+            this.textBox17.TabIndex = 40;
+            this.textBox17.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
+            // 
+            // textBox15
+            // 
+            this.textBox15.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox15.Location = new System.Drawing.Point(96, 168);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(40, 22);
+            this.textBox15.TabIndex = 39;
+            this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(6, 170);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(84, 14);
+            this.label66.TabIndex = 37;
+            this.label66.Text = "Prev_Weight";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(6, 198);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(84, 14);
+            this.label67.TabIndex = 38;
+            this.label67.Text = "This_Weight";
+            // 
+            // GPSData
+            // 
+            this.GPSData.AutoSize = true;
+            this.GPSData.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.GPSData.Location = new System.Drawing.Point(5, 0);
+            this.GPSData.Name = "GPSData";
+            this.GPSData.Size = new System.Drawing.Size(95, 20);
+            this.GPSData.TabIndex = 35;
+            this.GPSData.Text = "实时数据";
+            this.GPSData.UseVisualStyleBackColor = true;
+            this.GPSData.CheckedChanged += new System.EventHandler(this.GPSData_CheckedChanged);
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label62.Location = new System.Drawing.Point(6, 71);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(35, 16);
+            this.label62.TabIndex = 19;
+            this.label62.Text = "RAW";
+            // 
+            // GPSX
+            // 
+            this.GPSX.AutoSize = true;
+            this.GPSX.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.GPSX.Location = new System.Drawing.Point(47, 40);
+            this.GPSX.Name = "GPSX";
+            this.GPSX.Size = new System.Drawing.Size(32, 16);
+            this.GPSX.TabIndex = 19;
+            this.GPSX.Text = "...";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label63.Location = new System.Drawing.Point(6, 102);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(35, 16);
+            this.label63.TabIndex = 19;
+            this.label63.Text = "MAP";
+            // 
+            // GPSY
+            // 
+            this.GPSY.AutoSize = true;
+            this.GPSY.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.GPSY.Location = new System.Drawing.Point(47, 71);
+            this.GPSY.Name = "GPSY";
+            this.GPSY.Size = new System.Drawing.Size(32, 16);
+            this.GPSY.TabIndex = 19;
+            this.GPSY.Text = "...";
+            // 
+            // GPSZ
+            // 
+            this.GPSZ.AutoSize = true;
+            this.GPSZ.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.GPSZ.Location = new System.Drawing.Point(48, 102);
+            this.GPSZ.Name = "GPSZ";
+            this.GPSZ.Size = new System.Drawing.Size(32, 16);
+            this.GPSZ.TabIndex = 19;
+            this.GPSZ.Text = "...";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label61.Location = new System.Drawing.Point(6, 40);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(35, 16);
+            this.label61.TabIndex = 19;
+            this.label61.Text = "ID:";
             // 
             // tabControl2
             // 
@@ -2845,6 +2994,35 @@
             this.标定.TabIndex = 0;
             this.标定.Text = "tabPage8";
             this.标定.UseVisualStyleBackColor = true;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(94, 53);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(53, 12);
+            this.label65.TabIndex = 40;
+            this.label65.Text = "输入高度";
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(153, 9);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(51, 23);
+            this.button21.TabIndex = 39;
+            this.button21.Text = "Load-2";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(96, 9);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(51, 23);
+            this.button20.TabIndex = 39;
+            this.button20.Text = "Load-1";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // SelectStation
             // 
@@ -2954,6 +3132,16 @@
             this.secondlab.Size = new System.Drawing.Size(77, 12);
             this.secondlab.TabIndex = 19;
             this.secondlab.Text = "显示操作信息";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(6, 12);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(77, 12);
+            this.label64.TabIndex = 19;
+            this.label64.Text = "显示操作信息";
+            this.label64.Click += new System.EventHandler(this.label64_Click);
             // 
             // thirdlab
             // 
@@ -3437,134 +3625,6 @@
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click_1);
             // 
-            // GPSData
-            // 
-            this.GPSData.AutoSize = true;
-            this.GPSData.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GPSData.Location = new System.Drawing.Point(5, 0);
-            this.GPSData.Name = "GPSData";
-            this.GPSData.Size = new System.Drawing.Size(95, 20);
-            this.GPSData.TabIndex = 35;
-            this.GPSData.Text = "实时数据";
-            this.GPSData.UseVisualStyleBackColor = true;
-            this.GPSData.CheckedChanged += new System.EventHandler(this.GPSData_CheckedChanged);
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label63.Location = new System.Drawing.Point(6, 102);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(35, 16);
-            this.label63.TabIndex = 19;
-            this.label63.Text = "MAP";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label62.Location = new System.Drawing.Point(6, 71);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(35, 16);
-            this.label62.TabIndex = 19;
-            this.label62.Text = "RAW";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label61.Location = new System.Drawing.Point(6, 40);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(35, 16);
-            this.label61.TabIndex = 19;
-            this.label61.Text = "ID:";
-            // 
-            // GPSZ
-            // 
-            this.GPSZ.AutoSize = true;
-            this.GPSZ.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GPSZ.Location = new System.Drawing.Point(48, 102);
-            this.GPSZ.Name = "GPSZ";
-            this.GPSZ.Size = new System.Drawing.Size(32, 16);
-            this.GPSZ.TabIndex = 19;
-            this.GPSZ.Text = "...";
-            // 
-            // GPSY
-            // 
-            this.GPSY.AutoSize = true;
-            this.GPSY.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GPSY.Location = new System.Drawing.Point(47, 71);
-            this.GPSY.Name = "GPSY";
-            this.GPSY.Size = new System.Drawing.Size(32, 16);
-            this.GPSY.TabIndex = 19;
-            this.GPSY.Text = "...";
-            // 
-            // GPSX
-            // 
-            this.GPSX.AutoSize = true;
-            this.GPSX.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GPSX.Location = new System.Drawing.Point(47, 40);
-            this.GPSX.Name = "GPSX";
-            this.GPSX.Size = new System.Drawing.Size(32, 16);
-            this.GPSX.TabIndex = 19;
-            this.GPSX.Text = "...";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(6, 12);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(77, 12);
-            this.label64.TabIndex = 19;
-            this.label64.Text = "显示操作信息";
-            this.label64.Click += new System.EventHandler(this.label64_Click);
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(96, 9);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(51, 23);
-            this.button20.TabIndex = 39;
-            this.button20.Text = "Load-1";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(153, 9);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(51, 23);
-            this.button21.TabIndex = 39;
-            this.button21.Text = "Load-2";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(94, 53);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(53, 12);
-            this.label65.TabIndex = 40;
-            this.label65.Text = "输入高度";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.BackColor = System.Drawing.Color.White;
-            this.groupBox14.Controls.Add(this.GPSData);
-            this.groupBox14.Controls.Add(this.label62);
-            this.groupBox14.Controls.Add(this.GPSX);
-            this.groupBox14.Controls.Add(this.label63);
-            this.groupBox14.Controls.Add(this.GPSY);
-            this.groupBox14.Controls.Add(this.GPSZ);
-            this.groupBox14.Controls.Add(this.label61);
-            this.groupBox14.Location = new System.Drawing.Point(495, 40);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(274, 157);
-            this.groupBox14.TabIndex = 42;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "groupBox14";
-            // 
             // ModelsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3633,6 +3693,8 @@
             this.groupBox7.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.标定.ResumeLayout(false);
             this.标定.PerformLayout();
@@ -3645,8 +3707,6 @@
             this.Move.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3902,5 +3962,10 @@
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.CheckBox Smooth;
     }
 }

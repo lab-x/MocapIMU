@@ -427,8 +427,6 @@
             // transportBarToolStripMenuItem
             // 
             this.transportBarToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.transportBarToolStripMenuItem.Checked = true;
-            this.transportBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.transportBarToolStripMenuItem.Name = "transportBarToolStripMenuItem";
             this.transportBarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.transportBarToolStripMenuItem.Text = "Transport bar";
@@ -449,8 +447,6 @@
             // workDirectoryBarToolStripMenuItem
             // 
             this.workDirectoryBarToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.workDirectoryBarToolStripMenuItem.Checked = true;
-            this.workDirectoryBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.workDirectoryBarToolStripMenuItem.Name = "workDirectoryBarToolStripMenuItem";
             this.workDirectoryBarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.workDirectoryBarToolStripMenuItem.Text = "Work directory bar";
@@ -584,7 +580,7 @@
             this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.aboutUsToolStripMenuItem.Text = "About us";
             // 
-            // Mainform
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -595,7 +591,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.mainMenu;
-            this.Name = "Mainform";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Mainform_Load);

@@ -43,6 +43,7 @@ namespace Gwearable
 
             m_DefineWorkDirform = new WorkDirForm();
             m_DefineWorkDirform.Visible = true;
+            //m_DefineWorkDirform.Visible = false;
             m_DefineWorkDirform.Dock = DockStyle.Fill;
             this.leftbottomsplitContainer.Panel1.Controls.Add(m_DefineWorkDirform);
 
@@ -89,7 +90,7 @@ namespace Gwearable
             this.m_Deviceoptform.m_DefineSerialPort.UpdateInfoImage = this.RefreshImage;
             //m_DefineBodyinfoform.REFRESHBUTTONIMAGE+=new defineBodyinfoform.RefreshButtonImage(m_DefineBodyinfoform_REFRESHBUTTONIMAGE);
 
-
+            workDirectoryBarToolStripMenuItem.Checked = false;
             this.m_Deviceoptform.m_UpdateBtnSort = this.RefreshBtnSort;
 
             //阅读配置文档default.txt ，得到上一次的配置文件，然后调用RefreshBtnSort刷新图片            

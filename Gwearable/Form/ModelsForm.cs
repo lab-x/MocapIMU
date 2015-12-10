@@ -76,7 +76,7 @@ namespace Gwearable
         }
 
         private void ChangePGSText()
-        {
+        { 
             if (Global.NoDataFlag == true)
             {
                 GPSX.Text = "No Valid Data";
@@ -96,7 +96,7 @@ namespace Gwearable
                     else
                     {
                         GPSZ.Text = "Not Transformed";
-                    }
+                    } 
                 }
                 else if (Global.Station1)
                 {
@@ -110,10 +110,12 @@ namespace Gwearable
                     {
                         GPSZ.Text = "Not Transformed";
                     }
+             
                 }
                 else
                 {
                     GPSX.Text = "***********";
+                   
                 } 
                // GPSX.Text = Global.HEAD.x.ToString();
                // GPSY.Text = Global.HEAD.y.ToString();
@@ -1897,6 +1899,28 @@ namespace Gwearable
             } 
             sr.Close();
             fs.Close();
+        }
+        private void Smooth_CheckedChanged(object sender, EventArgs e)
+        {
+            if(Smooth.Checked)
+            {
+                Global.EnableSmooth = true; 
+            }
+            else
+            {
+                Global.EnableSmooth = false;
+                Global.Smooth = false;
+            }
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+            Global.Smooth_PrevParam = float.Parse(textBox15.Text);
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            Global.Smooth_ThisParam = float.Parse(textBox17.Text);
         } 
     }
 }

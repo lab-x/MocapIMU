@@ -1770,7 +1770,11 @@ namespace Gwearable
                                 Matrix head = Global.TransMat1 * raw;
                                 Global.HEAD = new Pos(-head[2, 0], head[1, 0], head[0, 0]);
                                 //Global.HEAD = new Pos(-head[0, 0], head[1, 0], -head[2, 0]);
-                                Console.WriteLine("Dong." + "MAPPED:  " + Global.HEAD.ToString());
+                                Console.WriteLine("Dong1." + "MAPPED:  " + Global.HEAD.ToString());
+                                if (Global.EnableSmooth)
+                                    Global.Smooth = true;
+                                else
+                                    Global.Smooth = false;
                             }
                             else if (refID == 2)  //&& Global.Station0 == false) // 塔号
                             {
@@ -1779,7 +1783,11 @@ namespace Gwearable
                                 Matrix head = Global.TransMat2 * raw;
                                 Global.HEAD = new Pos(-head[2, 0], head[1, 0], head[0, 0]);
                                 //Global.HEAD = new Pos(-head[0, 0], head[1, 0], -head[2, 0]);
-                                Console.WriteLine("Dong." + "MAPPED:  " + Global.HEAD.ToString());
+                                Console.WriteLine("Dong2." + "MAPPED:  " + Global.HEAD.ToString());
+                                if (Global.EnableSmooth)
+                                    Global.Smooth = true;
+                                else
+                                    Global.Smooth = false;
                             }
                         } 
 #endregion
@@ -1794,24 +1802,29 @@ namespace Gwearable
 
                         
                         //NOTE:此处得到的xyz pos值是0.1毫秒级别，四元数是扩大10000倍之后的整数。使用的时候需要作相应的除法。
-                       
-                      #region HEAD Position De-Quiver
-/*                          if (System.Math.Abs(PreHEAD.x - Global.HEAD.x) > 0 && System.Math.Abs(PreHEAD.x - Global.HEAD.x) < 0.01)
+           
+                        #region HEAD Position De-Quiver
+                        if (Global.Smooth)
                         {
-                            Global.HEAD.x = PreHEAD.x;
+                            if (System.Math.Abs(PreHEAD.x - Global.HEAD.x) < 0.01)
+                            {
+                                Global.HEAD.x = PreHEAD.x;
+                            }
+                            if (System.Math.Abs(PreHEAD.y - Global.HEAD.y) < 0.01)
+                            {
+                                Global.HEAD.y = PreHEAD.y;
+                            }
+                            if (System.Math.Abs(PreHEAD.z - Global.HEAD.z) < 0.01)
+                            {
+                                Global.HEAD.z = PreHEAD.z;
+                            }
+                            Global.HEAD.x = (Global.Smooth_PrevParam * PreHEAD.x + Global.Smooth_ThisParam * Global.HEAD.x) / (Global.Smooth_ThisParam + Global.Smooth_PrevParam);
+                            Global.HEAD.y = (Global.Smooth_PrevParam * PreHEAD.y + Global.Smooth_ThisParam * Global.HEAD.y) / (Global.Smooth_ThisParam + Global.Smooth_PrevParam);
+                            Global.HEAD.z = (Global.Smooth_PrevParam * PreHEAD.z + Global.Smooth_ThisParam * Global.HEAD.z) / (Global.Smooth_ThisParam + Global.Smooth_PrevParam);
+                            //Global.HEAD.x = (3 * PreHEAD.x + Global.HEAD.x) / 4;
+                            //Global.HEAD.y = (3 * PreHEAD.y + Global.HEAD.y) / 4;
+                            //Global.HEAD.z = (3 * PreHEAD.z + Global.HEAD.z) / 4;
                         }
-                        if (System.Math.Abs(PreHEAD.y - Global.HEAD.y) > 0 && System.Math.Abs(PreHEAD.y - Global.HEAD.y) < 0.01)
-                        {
-                            Global.HEAD.y = PreHEAD.y;
-                        }
-                        if (System.Math.Abs(PreHEAD.z - Global.HEAD.z) > 0 && System.Math.Abs(PreHEAD.z - Global.HEAD.z) < 0.01)
-                        {
-                            Global.HEAD.z = PreHEAD.z;
-                        }
-                        Global.HEAD.x = (3 * PreHEAD.x + Global.HEAD.x) / 4;
-                        Global.HEAD.y = (3 * PreHEAD.y + Global.HEAD.y) / 4;
-                        Global.HEAD.z = (3 * PreHEAD.z + Global.HEAD.z) / 4;
-  */                     
                       #endregion
                         
                         m_GPSPointCollection.Add(new Vector3(Xpos/10000.0f, Ypos/10000.0f, Zpos/10000.0f)); //米 ---级别的精度值

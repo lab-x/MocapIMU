@@ -229,3 +229,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+*.cache
+*.cache
+Gwearable/obj/x86/Debug/Gwearable.application
+*.txt
+*.manifest
+Gwearable/bin/Release/Gwearable.pdb
