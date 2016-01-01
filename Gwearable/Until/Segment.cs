@@ -305,8 +305,30 @@ namespace Gwearable
                     S.CaliS = false;
                     S.CaliX = false;
                     S.PrevRotQ = new CQuaternion(S.raw.Q.m_q0, S.raw.Q.m_q1, S.raw.Q.m_q2, S.raw.Q.m_q3);
-                    #region HIP (shoulders + chest)
-                    if (S.ID == 11 || S.ID == 9 ) //S.ID == 10||
+
+                    #region HEAD
+                    if (S.ID == 9 && Global.TransMatAvailable)
+                    {
+                        Matrix R = new Matrix(4, 4);
+                        Matrix invTM2 = new Matrix(3, 3);
+                        invTM2[0, 0] = Global.TransMat2[0, 0];
+                        invTM2[0, 1] = Global.TransMat2[1, 0];
+                        invTM2[0, 2] = Global.TransMat2[2, 0]; 
+                        invTM2[1, 0] = Global.TransMat2[0, 1];
+                        invTM2[1, 1] = Global.TransMat2[1, 1];
+                        invTM2[1, 2] = Global.TransMat2[2, 1]; 
+                        invTM2[2, 0] = Global.TransMat2[0, 2];
+                        invTM2[2, 1] = Global.TransMat2[1, 2];
+                        invTM2[2, 2] = Global.TransMat2[2, 2];
+                        R = invTM2 * Global.TM1_33;
+                        CQuaternion q = CQuaternion.Matrix2Quat(R); 
+                        Global.QHEADRAWT2 = q * Global.QHEADRAWT1;
+                        Global.invQHEADRAWT2 = new CQuaternion(Global.QHEADRAWT2.m_q0, -Global.QHEADRAWT2.m_q1, -Global.QHEADRAWT2.m_q2, -Global.QHEADRAWT2.m_q3);
+                    } 
+                    #endregion
+
+                    #region HIP (chest)
+                    else if (S.ID == 11 || S.ID == 10 )
                     {
                         CQuaternion Zref = new CQuaternion(0, 0, 0, 1);
                         CQuaternion ZW0 = Zref * S.Q_init;//T;
@@ -319,26 +341,23 @@ namespace Gwearable
                         V3 normSS = new V3(SS.x / w, SS.y / w, SS.z / w);
                         V3 Yref = new V3(0, 1, 0);
                         V3 z = V3.cross(Yref, normSS);
-                        if (S.ID == 11)
-                        {
-                            Global.Qtc = new CQuaternion(w, z.x, z.y, z.z);
-                            Global.invQtc = new CQuaternion(Global.Qtc.m_q0, -Global.Qtc.m_q1, -Global.Qtc.m_q2, -Global.Qtc.m_q3);
-                        }
-                        else 
-                        {
+                    //    if (S.ID == 11)
+                    //    {
+                    //    Global.Qtc = new CQuaternion(w, z.x, z.y, z.z);
+                    //        Global.invQtc = new CQuaternion(Global.Qtc.m_q0, -Global.Qtc.m_q1, -Global.Qtc.m_q2, -Global.Qtc.m_q3);
+                    //    }
+                    //    else 
+                    //    {
                             S.Q_Cali = new CQuaternion(w, z.x, z.y, z.z);
-                            S.invQ_Cali = new CQuaternion(Global.Qtc.m_q0, -Global.Qtc.m_q1, -Global.Qtc.m_q2, -Global.Qtc.m_q3);
-                        }
-                        if (double.IsNaN(Global.Qtc.m_q0))
+                            //S.invQ_Cali = new CQuaternion(Global.Qtc.m_q0, -Global.Qtc.m_q1, -Global.Qtc.m_q2, -Global.Qtc.m_q3);
+                            S.invQ_Cali = new CQuaternion(S.Q_Cali.m_q0, -S.Q_Cali.m_q1, -S.Q_Cali.m_q2, -S.Q_Cali.m_q3);
+                        
+                     //   }
+                        if (double.IsNaN(S.Q_Cali.m_q0))
                         {
-                            Global.Qtc = new CQuaternion(1, 0, 0, 0);
-                            Global.invQtc = new CQuaternion(1, 0, 0, 0);
-                        }
-                        if (Global.DEBUG_TPose)
-                        {
-                            Console.WriteLine("Qtc = " + Global.Qtc.ToString());
-                            Console.WriteLine("Calibration Done!");
-                        }
+                            S.Q_Cali = new CQuaternion(1, 0, 0, 0);
+                            S.invQ_Cali = new CQuaternion(1, 0, 0, 0);
+                        } 
                     } 
                     #endregion
 
@@ -544,7 +563,6 @@ namespace Gwearable
                         Global.CanApose = false;
                         Global.CanSpose = false;
 
-
                         Global.isCali = true;
                         Global.HIP = new Pos();
                     }
@@ -557,16 +575,8 @@ namespace Gwearable
             Segment S1 = S_self;
             CQuaternion q_current = S1.raw.Q;
             CQuaternion tmp0 = q_current * S1.Q_init; // S1.Q_initT;   T pose quaternion's inverse
-
-            if (S1.ID == 11)
-            {
-                CQuaternion tmp1 = tmp0 * Global.Qtc;
-                CQuaternion tmp2 = Global.invQtc * tmp1;
-                S1.QW = new CQuaternion(tmp2.m_q0, -tmp2.m_q1, tmp2.m_q3, tmp2.m_q2);
-            }
-
-            #region DisableShoulderJoints
-            else if (S1.ID > 10)    //   ||S1.ID == 1)
+            #region LowerBody
+            if(S1.ID > 10)    //   ||S1.ID == 1)
             {
                 CQuaternion tmp1 = tmp0 * S1.Q_Cali;
                 CQuaternion tmp2 = S1.invQ_Cali * tmp1;
@@ -574,25 +584,93 @@ namespace Gwearable
                 //S1.QW = new CQuaternion(SegmentCollection.arraySegment[10].QW.m_q0, SegmentCollection.arraySegment[10].QW.m_q1, SegmentCollection.arraySegment[10].QW.m_q2, SegmentCollection.arraySegment[10].QW.m_q3);
             }
             #endregion
-
-            else if(S1.ID < 9)  // S.ID == 1 2 3 6 7 8
+            #region ARM
+            else if (S1.ID < 9)  // S.ID == 1 2 3 6 7 8
             {
                 Matrix tmpMat1 = new Matrix(4, 1);
-                tmpMat1[0, 0] = tmp0.m_q0;  
-                tmpMat1[1, 0] = tmp0.m_q1;  
-                tmpMat1[2, 0] = tmp0.m_q2; 
-                tmpMat1[3, 0] = tmp0.m_q3;  
+                tmpMat1[0, 0] = tmp0.m_q0;
+                tmpMat1[1, 0] = tmp0.m_q1;
+                tmpMat1[2, 0] = tmp0.m_q2;
+                tmpMat1[3, 0] = tmp0.m_q3;
                 Matrix result = S1.CaliMat * tmpMat1;
                 S1.QW = new CQuaternion(result[0, 0], result[1, 0], result[2, 0], result[3, 0]);
                 S1.QW.Normalize();
                 //if (Global.ShouldersNChest == false)
                 //{
-                    if (S1.ID == 4 || S1.ID == 5)
-                    {
-                        S1.QW = new CQuaternion(SegmentCollection.arraySegment[10].QW.m_q0, SegmentCollection.arraySegment[10].QW.m_q1, SegmentCollection.arraySegment[10].QW.m_q2, SegmentCollection.arraySegment[10].QW.m_q3);
-                    }
+                if (S1.ID == 4 || S1.ID == 5)
+                {
+                    S1.QW = new CQuaternion(SegmentCollection.arraySegment[10].QW.m_q0, SegmentCollection.arraySegment[10].QW.m_q1, SegmentCollection.arraySegment[10].QW.m_q2, SegmentCollection.arraySegment[10].QW.m_q3);
+                }
                 //}
-            }
+            } 
+            #endregion
+            //HEAD  9                  Chest 10
+            else if (S1.ID == 9 )       // S1.ID == 10
+            {
+                CQuaternion prevQW = new CQuaternion(S1.QW.m_q0, S1.QW.m_q1, S1.QW.m_q2, S1.QW.m_q3);
+                if (Global.EnableAbsPos)
+                {
+                    Matrix Axis = new Matrix(3, 1);
+                    Axis[0, 0] = tmp0.m_q1;
+                    Axis[1, 0] = tmp0.m_q2;
+                    Axis[2, 0] = tmp0.m_q3;
+                    //Matrix TM = new Matrix(3, 3);
+
+                    if (Global.Station0)
+                    {
+                        Matrix newAxis = Global.TM1_33 * Axis;
+                        //S1.QW = new CQuaternion(tmp0.m_q0, -newAxis[2, 0], newAxis[1, 0], newAxis[0, 0]);
+                        S1.QW = new CQuaternion(tmp0.m_q0, -newAxis[0, 0], newAxis[1, 0], -newAxis[2, 0]);
+                    }
+                    else if (Global.Station1)
+                    {
+                        tmp0 = q_current * Global.invQHEADRAWT2;
+                        Matrix newAxis = Global.TM2_33 * Axis;
+                        S1.QW = new CQuaternion(tmp0.m_q0, -newAxis[0, 0], newAxis[1, 0], -newAxis[2, 0]);
+                        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        
+                        Matrix TM2_transpose = Matrix.Transpose(Global.TM2_33);
+                        //
+                        Matrix R12 = TM2_transpose * Global.TM1_33;
+                        Matrix newAxis_1 = Global.TM1_33 * Axis;
+                        Matrix newAxis_2 = R12 * newAxis_1;
+                        S1.QW = new CQuaternion(tmp0.m_q0, -newAxis_2[0, 0], newAxis_2[1, 0], -newAxis_2[2, 0]);
+                    
+                    } 
+                     CQuaternion thisQW = new CQuaternion(S1.QW.m_q0, S1.QW.m_q1, S1.QW.m_q2, S1.QW.m_q3); 
+                    
+                    #region Quat_Dequiver
+                     if (Global.Smooth)
+                     {
+                         CQuaternion Start = prevQW;
+                         CQuaternion Stop = thisQW;
+                         CQuaternion q1 = Stop;   //new CQuaternion(1, 0, 0, 0);
+                         double dot = Start.m_q0 * Stop.m_q0 + Start.m_q1 * Stop.m_q1 + Start.m_q2 * Stop.m_q2 + Start.m_q3 * Stop.m_q3;
+
+                         if (dot < 0)
+                         {
+                             Start = new CQuaternion(-prevQW.m_q0, -prevQW.m_q1, -prevQW.m_q2, -prevQW.m_q3);
+                             dot = Start.m_q0 * Stop.m_q0 + Start.m_q1 * Stop.m_q1 + Start.m_q2 * Stop.m_q2 + Start.m_q3 * Stop.m_q3;
+
+                         }
+                         else if (dot > 1)
+                         {
+                             dot = 1.00;
+                         }
+                         double Scaler1 = System.Math.Asin(0.55 * dot) / System.Math.Asin(dot);
+                         double Scaler2 = System.Math.Asin(0.45 * dot) / System.Math.Asin(dot);
+
+                         q1 = new CQuaternion(Scaler1 * Start.m_q0 + Scaler2 * Stop.m_q0, Scaler1 * Start.m_q1 + Scaler2 * Stop.m_q1, Scaler1 * Start.m_q2 + Scaler2 * Stop.m_q2, Scaler1 * Start.m_q3 + Scaler2 * Stop.m_q3);
+                         double mag = System.Math.Sqrt(q1.m_q0 * q1.m_q0 + q1.m_q1 * q1.m_q1 + q1.m_q2 * q1.m_q2 + q1.m_q3 * q1.m_q3);
+                         q1 = new CQuaternion(q1.m_q0 / mag, q1.m_q1 / mag, q1.m_q2 / mag, q1.m_q3 / mag);
+
+                         S1.QW = new CQuaternion(q1.m_q0, q1.m_q1, q1.m_q2, q1.m_q3);
+                     }
+                    #endregion
+                }
+                else
+                    S1.QW = SegmentCollection.arraySegment[10].QW; 
+            } 
         }
 
         public static void Gen_QL(Segment S_self, Segment S_parent)     //FOR ALL SEGMENTS
@@ -604,8 +682,7 @@ namespace Gwearable
             {
                 Sc.PrevRotQ = new CQuaternion(1, 0, 0, 0);
             }
-            ///Quat_DeQuiver//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if (Sc.isFirstTime)
+             if (Sc.isFirstTime)
             {
                 Sc.PrevRotQ = new CQuaternion();
                 Sc.isFirstTime = false;
@@ -614,13 +691,10 @@ namespace Gwearable
             {
                 Sc.PrevRotQ = new CQuaternion(Sc.QL.m_q0, Sc.QL.m_q1, Sc.QL.m_q2, Sc.QL.m_q3);
             }
-            ///Quat_DeQuiver//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+            
             if (Sc.ID == Sp.ID)//ID=11
             {
                 Sc.QL = Sc.QW;
-                //DEBUG***************************                
-                //Console.WriteLine("HIP QW: " + Sc.QW.ToString());
             }
             else
             {
@@ -646,82 +720,69 @@ namespace Gwearable
             Sc.Eul_Out.Eul_1 = y * 57.3;
             Sc.Eul_Out.Eul_2 = x * 57.3;
             Sc.Eul_Out.Eul_3 = z * 57.3;
-            
+
+            #region Arm Angle Constraint
             # region Left Side
             if (Sc.ID < 4)      //LEFT SIDE
             {
-                if (Sc.ID == 2)
-                {
-                    if (Sc.Eul_Out.Eul_1 < -145 || Sc.Eul_Out.Eul_1 > 0)
-                    {
-                        //Console.WriteLine("RIGHT FORE ARM exceed!");
-                        Sc.QL = Sc.PrevRotQ;
-                        ang = CQuaternion.Quat2angle(Sc.QL.m_q0, Sc.QL.m_q1, Sc.QL.m_q2, Sc.QL.m_q3, 3);
-                        y = ang.Eul_1;
-                        x = ang.Eul_2;
-                        z = ang.Eul_3;
-                        Sc.Eul_Out.Eul_1 = y * 57.3;
-                        Sc.Eul_Out.Eul_2 = x * 57.3;
-                        Sc.Eul_Out.Eul_3 = z * 57.3; 
-                    }
-                }
                 if (Sc.ID == 1)
                 {
-                    if (Sc.Eul_Out.Eul_1 < -80 || Sc.Eul_Out.Eul_1 > 80)
+                    Sc.Eul_Out.Eul_2 = 0;
+                }
+                else if (Sc.ID == 2)
+                {
+                    if (Sc.Eul_Out.Eul_1 < -145)
                     {
-                        //Console.WriteLine("RIGHT HAND exceed!");
-                        Sc.QL = Sc.PrevRotQ;
-                        ang = CQuaternion.Quat2angle(Sc.QL.m_q0, Sc.QL.m_q1, Sc.QL.m_q2, Sc.QL.m_q3, 3);
-                        y = ang.Eul_1;
-                        x = ang.Eul_2;
-                        z = ang.Eul_3;
-                        Sc.Eul_Out.Eul_1 = y * 57.3;
-                        Sc.Eul_Out.Eul_2 = x * 57.3;
-                        Sc.Eul_Out.Eul_3 = z * 57.3;
+                        //Console.WriteLine("RIGHT FORE ARM exceed!");
+
+                        Sc.Eul_Out.Eul_1 = -145;
+                    }
+                    else if (Sc.Eul_Out.Eul_1 > 0)
+                    {
+                        Sc.Eul_Out.Eul_1 = 0;
                     }
                 }
+                else if (Sc.ID == 3)
+                {
+                    if (Sc.Eul_Out.Eul_1 < -145)
+                        Sc.Eul_Out.Eul_1 = -145;
+                    else if (Sc.Eul_Out.Eul_1 > 80)
+                        Sc.Eul_Out.Eul_1 = 80;
+                }
+
             }
             #endregion
             #region Right Arm
             else if (Sc.ID < 9)     //RIGHT SIDE
             {
-                if (Sc.ID == 7)
+                if (Sc.ID == 8)
                 {
-                    if (Sc.Eul_Out.Eul_1 > 145 || Sc.Eul_Out.Eul_1 < 0)
+                    Sc.Eul_Out.Eul_1 = 0;
+                }
+                else if (Sc.ID == 7)
+                {
+                    if (Sc.Eul_Out.Eul_1 > 145)
                     {
-                        //Console.WriteLine("RIGHT FORE ARM exceed!");
-                        Sc.QL = Sc.PrevRotQ;
-                        ang = CQuaternion.Quat2angle(Sc.QL.m_q0, Sc.QL.m_q1, Sc.QL.m_q2, Sc.QL.m_q3, 3);
-                        y = ang.Eul_1;
-                        x = ang.Eul_2;
-                        z = ang.Eul_3;
-                        Sc.Eul_Out.Eul_1 = y * 57.3;
-                        Sc.Eul_Out.Eul_2 = x * 57.3;
-                        Sc.Eul_Out.Eul_3 = z * 57.3;
-
+                        Sc.Eul_Out.Eul_1 = 145;
+                    }
+                    else if (Sc.Eul_Out.Eul_1 < 0)
+                    {
+                        Sc.Eul_Out.Eul_1 = 0;
+                    }
+                    else if (Sc.ID == 6)
+                    {
+                        if (Sc.Eul_Out.Eul_1 > 145)
+                            Sc.Eul_Out.Eul_1 = 145;
+                        else if (Sc.Eul_Out.Eul_1 < -80)
+                            Sc.Eul_Out.Eul_1 = -80;
                     }
                 }
-                 if (Sc.ID == 8)
-                {
-                    if (Sc.Eul_Out.Eul_1 > 80 || Sc.Eul_Out.Eul_1 < -80)
-                    {
-                        //Console.WriteLine("RIGHT HAND exceed!");
-                        Sc.QL = Sc.PrevRotQ;
-                        ang = CQuaternion.Quat2angle(Sc.QL.m_q0, Sc.QL.m_q1, Sc.QL.m_q2, Sc.QL.m_q3, 3);
-                        y = ang.Eul_1;
-                        x = ang.Eul_2;
-                        z = ang.Eul_3;
-                        Sc.Eul_Out.Eul_1 = y * 57.3;
-                        Sc.Eul_Out.Eul_2 = x * 57.3;
-                        Sc.Eul_Out.Eul_3 = z * 57.3;
-                    }
-                }
-               
             }
             #endregion
-            
+            #endregion
+
             #region Quat_Dequiver
-            
+            /*            
             CQuaternion Start = new CQuaternion(Sc.PrevRotQ.m_q0, Sc.PrevRotQ.m_q1, Sc.PrevRotQ.m_q2, Sc.PrevRotQ.m_q3);
             CQuaternion Stop = new CQuaternion(Sc.QL.m_q0, Sc.QL.m_q1, Sc.QL.m_q2, Sc.QL.m_q3);
             CQuaternion q1 = new CQuaternion(1, 0, 0, 0);
@@ -746,7 +807,7 @@ namespace Gwearable
 
             Sc.QL = new CQuaternion(q1.m_q0, q1.m_q1, q1.m_q2, q1.m_q3);
          
-            #endregion
+            
             
             ang = CQuaternion.Quat2angle(Sc.QL.m_q0, Sc.QL.m_q1, Sc.QL.m_q2, Sc.QL.m_q3, 3);
             y = ang.Eul_1;
@@ -765,7 +826,9 @@ namespace Gwearable
             Sc.Eul_Out.Eul_1 = y * 57.3;
             Sc.Eul_Out.Eul_2 = x * 57.3;
             Sc.Eul_Out.Eul_3 = z * 57.3;
-
+             */
+            #endregion
+            
             #region  ReCalculate Qworld
             if (Sc.ID == Sp.ID)
             {

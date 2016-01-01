@@ -78,48 +78,48 @@ namespace Gwearable
         private void ChangePGSText()
         { 
             if (Global.NoDataFlag == true)
-            {
+            { 
                 GPSX.Text = "No Valid Data";
                 GPSY.Text = "No Valid Data";
-                GPSZ.Text = "No Valid Data";
+                GPSZ.Text = "No Valid Data"; 
             }
             else
             {
                 if (Global.Station0)
                 {
-                    GPSX.Text = " 0";
-                    GPSY.Text = Global.HEADRAW.ToString();
-                    if (Global.TransMatAvailable == true)
-                    {
-                        GPSZ.Text = Global.HEAD.ToString();
-                    }
-                    else
-                    {
-                        GPSZ.Text = "Not Transformed";
-                    } 
+                    GPSX.Text = "  0:  " + Global.QHEADRAW.ToString();
+                    GPSY.Text = "  " + Global.HEAD.ToString();   //Global.HEADRAW.ToString();
+                    GPSZ.Text = "  0x" + Global.Info.ToString("X");
+                    //if (Global.TransMatAvailable == true)
+                    //{
+                    //    GPSZ.Text = "  " + SegmentCollection.arraySegment[8].QW.ToString();//Global.HEAD.ToString() +
+                    //}
+                    //else
+                    //{
+                    //    GPSZ.Text = "Not Transformed";
+                    //} 
                 }
                 else if (Global.Station1)
                 {
-                    GPSX.Text = " 1"; 
-                    GPSY.Text = Global.HEADRAW.ToString();
-                    if (Global.TransMatAvailable == true)
-                    {
-                        GPSZ.Text = Global.HEAD.ToString();
-                    }
-                    else
-                    {
-                        GPSZ.Text = "Not Transformed";
-                    }
+                    GPSX.Text = "  1:  " + Global.QHEADRAW.ToString();
+                    GPSY.Text = "  " + Global.HEAD.ToString();
+                    GPSZ.Text = "  0x" + Global.Info.ToString("X");
+                   
+                    //if (Global.TransMatAvailable == true)
+                    //{
+                    //    GPSZ.Text = "  " + SegmentCollection.arraySegment[8].QW.ToString();//Global.HEAD.ToString() 
+                    //}
+                    //else
+                    //{
+                    //    GPSZ.Text = "Not Transformed";
+                    //}
              
                 }
                 else
                 {
                     GPSX.Text = "***********";
                    
-                } 
-               // GPSX.Text = Global.HEAD.x.ToString();
-               // GPSY.Text = Global.HEAD.y.ToString();
-               // GPSZ.Text = Global.HEAD.z.ToString();
+                }  
             }
         }
         private void InitMode()
@@ -1574,17 +1574,16 @@ namespace Gwearable
 
         private void firstbtn_Click(object sender, EventArgs e)
         {
-            Global.SaveDataStart = DateTime.Now;
+            //Global.SaveDataStart = DateTime.Now;
             while(true)
             {
-                Global.SaveDataElps = DateTime.Now - Global.SaveDataStart;
-                double Telps = Global.SaveDataElps.Ticks / 10000000.0;
-                if (Telps > 1) //0.025)
-                {
-                    return;
-                } 
-
-                //if (Global.Save1 && Global.Station0)
+//                Global.SaveDataElps = DateTime.Now - Global.SaveDataStart;
+//                double Telps = Global.SaveDataElps.Ticks / 10000000.0;
+//                if (Telps > 1) //0.025)
+//                {
+//                    return;
+//                } 
+                 
                 if (radioButton31.Checked && Global.Station0)
                     {
                     firstlab.Text = "0: X(" + Global.HEADRAW.x.ToString() + ") Y(" + Global.HEADRAW.y.ToString() + ") Z(" + Global.HEADRAW.z.ToString()+")";
@@ -1604,22 +1603,22 @@ namespace Gwearable
 
         private void secondbtn_Click(object sender, EventArgs e)
         {
-            Global.SaveDataStart = DateTime.Now;
+//            Global.SaveDataStart = DateTime.Now;
             while (true)
             {
-                Global.SaveDataElps = DateTime.Now - Global.SaveDataStart;
-                double Telps = Global.SaveDataElps.Ticks / 10000000.0;
-                if (Telps > 1) //0.025)
-                {
-                    break;
-                } 
+//                Global.SaveDataElps = DateTime.Now - Global.SaveDataStart;
+//                double Telps = Global.SaveDataElps.Ticks / 10000000.0;
+//                if (Telps > 1) //0.025)
+//                {
+//                    break;
+//                } 
                 if (radioButton31.Checked && Global.Station0)
                 {
                     secondlab.Text = "0: X(" + Global.HEADRAW.x.ToString() + ") Y(" + Global.HEADRAW.y.ToString() + ") Z(" + Global.HEADRAW.z.ToString() + ")"; 
                     Global.secondpos0 = Global.HEADRAW;
                     return;
                 }
-                else if (Global.Save2 && Global.Station1)
+                else if (radioButton32.Checked && Global.Station1)
                 {
                     secondlab.Text = "1: X(" + Global.HEADRAW.x.ToString() + ") Y(" + Global.HEADRAW.y.ToString() + ") Z(" + Global.HEADRAW.z.ToString() + ")";
                     Global.secondpos1 = Global.HEADRAW;
@@ -1630,15 +1629,15 @@ namespace Gwearable
 
         private void thirdbtn_Click(object sender, EventArgs e)
         {
-            Global.SaveDataStart = DateTime.Now;
+//            Global.SaveDataStart = DateTime.Now;
             while (true)
             {
-                Global.SaveDataElps = DateTime.Now - Global.SaveDataStart;
-                double Telps = Global.SaveDataElps.Ticks / 10000000.0;
-                if (Telps > 1) //0.025)
-                {
-                    break;
-                } 
+//                Global.SaveDataElps = DateTime.Now - Global.SaveDataStart;
+//                double Telps = Global.SaveDataElps.Ticks / 10000000.0;
+//                if (Telps > 1) //0.025)
+//                {
+//                    break;
+//                } 
                 if (radioButton31.Checked && Global.Station0)
                 {
                     thirdlab.Text = "0: X(" + Global.HEADRAW.x.ToString() + ") Y(" + Global.HEADRAW.y.ToString() + ") Z(" + Global.HEADRAW.z.ToString() + ")";
@@ -1684,137 +1683,32 @@ namespace Gwearable
         // X + 1
         private void button16_Click(object sender, EventArgs e)
         {
-            Segment HIP = SegmentCollection.arraySegment[10];
-            CQuaternion x_left = new CQuaternion(0, 1, 0, 0);
-            CQuaternion tmp = new CQuaternion(HIP.Qworld.m_q0, HIP.Qworld.m_q1, HIP.Qworld.m_q2, HIP.Qworld.m_q3);
-            CQuaternion Adjust = (HIP.Qworld * x_left) * (tmp.Conjugate());
-
-
-            SegmentCollection.arraySegment[10].Position.x = SegmentCollection.arraySegment[10].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[10].Position.y = SegmentCollection.arraySegment[10].Position.y + 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[10].Position.z = SegmentCollection.arraySegment[10].Position.z + 0.01 * Adjust.m_q3;
-
-
-            SegmentCollection.arraySegment[16].Position.x = SegmentCollection.arraySegment[16].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[16].Position.y = SegmentCollection.arraySegment[16].Position.y + 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[16].Position.z = SegmentCollection.arraySegment[16].Position.z + 0.01 * Adjust.m_q3;
-
-            SegmentCollection.arraySegment[13].Position.x = SegmentCollection.arraySegment[13].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[13].Position.y = SegmentCollection.arraySegment[13].Position.y + 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[13].Position.z = SegmentCollection.arraySegment[13].Position.z + 0.01 * Adjust.m_q3;
-
+            Global.LeftRight = Global.LeftRight + 0.1;
         }
         // X - 1
         private void button1_Click(object sender, EventArgs e)
         {
-            Segment HIP = SegmentCollection.arraySegment[10];
-            CQuaternion x_left = new CQuaternion(0, 1, 0, 0);
-            CQuaternion tmp = new CQuaternion(HIP.Qworld.m_q0, HIP.Qworld.m_q1, HIP.Qworld.m_q2, HIP.Qworld.m_q3);
-            CQuaternion Adjust = (HIP.Qworld * x_left) * (tmp.Conjugate());
-
-
-            SegmentCollection.arraySegment[10].Position.x = SegmentCollection.arraySegment[10].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[10].Position.y = SegmentCollection.arraySegment[10].Position.y - 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[10].Position.z = SegmentCollection.arraySegment[10].Position.z - 0.01 * Adjust.m_q3;
-
-
-            SegmentCollection.arraySegment[16].Position.x = SegmentCollection.arraySegment[16].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[16].Position.y = SegmentCollection.arraySegment[16].Position.y - 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[16].Position.z = SegmentCollection.arraySegment[16].Position.z - 0.01 * Adjust.m_q3;
-
-            SegmentCollection.arraySegment[13].Position.x = SegmentCollection.arraySegment[13].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[13].Position.y = SegmentCollection.arraySegment[13].Position.y - 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[13].Position.z = SegmentCollection.arraySegment[13].Position.z - 0.01 * Adjust.m_q3;
-
+            Global.LeftRight = Global.LeftRight - 0.1;
         }
         // Y - 1
         private void button14_Click(object sender, EventArgs e)
         {
             Global.LegLength = Global.LegLength - 0.1;
-            /*Segment HIP = SegmentCollection.arraySegment[10];
-            CQuaternion x_left = new CQuaternion(0, 0, 1, 0);
-            CQuaternion tmp = new CQuaternion(HIP.Qworld.m_q0, HIP.Qworld.m_q1, HIP.Qworld.m_q2, HIP.Qworld.m_q3);
-            CQuaternion Adjust = (HIP.Qworld * x_left) * (tmp.Conjugate());
-
-
-            SegmentCollection.arraySegment[10].Position.x = SegmentCollection.arraySegment[10].Position.x - 0.01 * Adjust.m_q1;
-            //SegmentCollection.arraySegment[10].Position.y = SegmentCollection.arraySegment[10].Position.y - 0.1;
-            SegmentCollection.arraySegment[10].Position.z = SegmentCollection.arraySegment[10].Position.z - 0.01 * Adjust.m_q3;
-
-
-            SegmentCollection.arraySegment[16].Position.x = SegmentCollection.arraySegment[16].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[16].Position.y = SegmentCollection.arraySegment[16].Position.y - 0.1;
-            SegmentCollection.arraySegment[16].Position.z = SegmentCollection.arraySegment[16].Position.z - 0.01 * Adjust.m_q3;
-
-            SegmentCollection.arraySegment[13].Position.x = SegmentCollection.arraySegment[13].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[13].Position.y = SegmentCollection.arraySegment[13].Position.y - 0.1;
-            SegmentCollection.arraySegment[13].Position.z = SegmentCollection.arraySegment[13].Position.z - 0.01 * Adjust.m_q3;
-        */
         }
         // Y + 1
         private void button17_Click(object sender, EventArgs e)
         {
             Global.LegLength = Global.LegLength + 0.1;
-           /* Segment HIP = SegmentCollection.arraySegment[10];
-            CQuaternion x_left = new CQuaternion(0, 0, 1, 0);
-            CQuaternion tmp = new CQuaternion(HIP.Qworld.m_q0, HIP.Qworld.m_q1, HIP.Qworld.m_q2, HIP.Qworld.m_q3);
-            CQuaternion Adjust = (HIP.Qworld * x_left) * (tmp.Conjugate());
-
-
-            SegmentCollection.arraySegment[10].Position.x = SegmentCollection.arraySegment[10].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[10].Position.y = SegmentCollection.arraySegment[10].Position.y + 0.01;
-            SegmentCollection.arraySegment[10].Position.z = SegmentCollection.arraySegment[10].Position.z + 0.01 * Adjust.m_q3;
-
-
-            SegmentCollection.arraySegment[16].Position.x = SegmentCollection.arraySegment[16].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[16].Position.y = SegmentCollection.arraySegment[16].Position.y + 0.01;
-            SegmentCollection.arraySegment[16].Position.z = SegmentCollection.arraySegment[16].Position.z + 0.01 * Adjust.m_q3;
-
-            SegmentCollection.arraySegment[13].Position.x = SegmentCollection.arraySegment[13].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[13].Position.y = SegmentCollection.arraySegment[13].Position.y + 0.01;
-            SegmentCollection.arraySegment[13].Position.z = SegmentCollection.arraySegment[13].Position.z + 0.01 * Adjust.m_q3;*/
         }
         // Z - 1
         private void button15_Click_1(object sender, EventArgs e)
         {
-            Segment HIP = SegmentCollection.arraySegment[10];
-            CQuaternion x_left = new CQuaternion(0, 0, 0, 1);
-            CQuaternion tmp = new CQuaternion(HIP.Qworld.m_q0, HIP.Qworld.m_q1, HIP.Qworld.m_q2, HIP.Qworld.m_q3);
-            CQuaternion Adjust = (HIP.Qworld * x_left) * (tmp.Conjugate());
-
-
-            SegmentCollection.arraySegment[10].Position.x = SegmentCollection.arraySegment[10].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[10].Position.y = SegmentCollection.arraySegment[10].Position.y - 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[10].Position.z = SegmentCollection.arraySegment[10].Position.z - 0.01 * Adjust.m_q3;
-
-
-            SegmentCollection.arraySegment[16].Position.x = SegmentCollection.arraySegment[16].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[16].Position.y = SegmentCollection.arraySegment[16].Position.y - 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[16].Position.z = SegmentCollection.arraySegment[16].Position.z - 0.01 * Adjust.m_q3;
-
-            SegmentCollection.arraySegment[13].Position.x = SegmentCollection.arraySegment[13].Position.x - 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[13].Position.y = SegmentCollection.arraySegment[13].Position.y - 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[13].Position.z = SegmentCollection.arraySegment[13].Position.z - 0.01 * Adjust.m_q3;
+            Global.FwdBwd = Global.FwdBwd - 0.1;    
         }
         // Z + 1
         private void button18_Click(object sender, EventArgs e)
         {
-            Segment HIP = SegmentCollection.arraySegment[10];
-            CQuaternion x_left = new CQuaternion(0, 0, 0, 1);
-            CQuaternion tmp = new CQuaternion(HIP.Qworld.m_q0, HIP.Qworld.m_q1, HIP.Qworld.m_q2, HIP.Qworld.m_q3);
-            CQuaternion Adjust = (HIP.Qworld * x_left) * (tmp.Conjugate()); 
-
-            SegmentCollection.arraySegment[10].Position.x = SegmentCollection.arraySegment[10].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[10].Position.y = SegmentCollection.arraySegment[10].Position.y + 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[10].Position.z = SegmentCollection.arraySegment[10].Position.z + 0.01 * Adjust.m_q3;
-            
-            SegmentCollection.arraySegment[16].Position.x = SegmentCollection.arraySegment[16].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[16].Position.y = SegmentCollection.arraySegment[16].Position.y + 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[16].Position.z = SegmentCollection.arraySegment[16].Position.z + 0.01 * Adjust.m_q3;
-
-            SegmentCollection.arraySegment[13].Position.x = SegmentCollection.arraySegment[13].Position.x + 0.01 * Adjust.m_q1;
-            SegmentCollection.arraySegment[13].Position.y = SegmentCollection.arraySegment[13].Position.y + 0.01 * Adjust.m_q2;
-            SegmentCollection.arraySegment[13].Position.z = SegmentCollection.arraySegment[13].Position.z + 0.01 * Adjust.m_q3;
+            Global.FwdBwd = Global.FwdBwd + 0.1;
         }
 
         private void GPSData_CheckedChanged(object sender, EventArgs e)
@@ -1879,6 +1773,15 @@ namespace Gwearable
                 } 
             }
             Global.TransMatAvailable = true;
+            Global.TM1_33[0, 0] = Global.TransMat1[0, 0];
+            Global.TM1_33[0, 1] = Global.TransMat1[0, 1];
+            Global.TM1_33[0, 2] = Global.TransMat1[0, 2];
+            Global.TM1_33[1, 0] = Global.TransMat1[1, 0];
+            Global.TM1_33[1, 1] = Global.TransMat1[1, 1];
+            Global.TM1_33[1, 2] = Global.TransMat1[1, 2];
+            Global.TM1_33[2, 0] = Global.TransMat1[2, 0];
+            Global.TM1_33[2, 1] = Global.TransMat1[2, 1];
+            Global.TM1_33[2, 2] = Global.TransMat1[2, 2];
             sr.Close();
             fs.Close();
         }
@@ -1896,6 +1799,16 @@ namespace Gwearable
                     Global.TransMat2[line, col] = double.Parse(ff.elements[col]);
                 }
                 Global.TransMatAvailable = true;
+
+                Global.TM2_33[0, 0] = Global.TransMat2[0, 0];
+                Global.TM2_33[0, 1] = Global.TransMat2[0, 1];
+                Global.TM2_33[0, 2] = Global.TransMat2[0, 2];
+                Global.TM2_33[1, 0] = Global.TransMat2[1, 0];
+                Global.TM2_33[1, 1] = Global.TransMat2[1, 1];
+                Global.TM2_33[1, 2] = Global.TransMat2[1, 2];
+                Global.TM2_33[2, 0] = Global.TransMat2[2, 0];
+                Global.TM2_33[2, 1] = Global.TransMat2[2, 1];
+                Global.TM2_33[2, 2] = Global.TransMat2[2, 2];
             } 
             sr.Close();
             fs.Close();
@@ -1921,6 +1834,25 @@ namespace Gwearable
         private void textBox17_TextChanged(object sender, EventArgs e)
         {
             Global.Smooth_ThisParam = float.Parse(textBox17.Text);
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Matrix R = new Matrix(3, 3);
+            R[0, 0] = 0;
+            R[0, 1] = 1;
+            R[0, 2] = 0;
+            R[1, 0] = 0;
+            R[1, 1] = 0;
+            R[1, 2] = 1;
+            R[2, 0] = 1;
+            R[2, 1] = 0;
+            R[2, 2] = 0;
+            CQuaternion Q = CQuaternion.Matrix2Quat(R);
+            R = CQuaternion.Quat2Matrix(Q);
+            string str1 = Q.ToString();
+            String str2 = R.ToString();
+            textBox18.Text = str1 + "\n" + str2;
         } 
     }
 }

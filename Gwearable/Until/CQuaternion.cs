@@ -230,6 +230,49 @@ namespace Gwearable
             RotMat[2, 1] = 2.0 * (yz + xw);
             return RotMat;
         }
+        
+        public static CQuaternion Matrix2Quat(Matrix a)
+        {
+            CQuaternion q = new CQuaternion(1,0,0,0);
+            double trace = a[0,0] + a[1,1] + a[2,2]; // I removed + 1.0f; see discussion with Ethan
+            double s;
+            if( trace > 0 ) 
+            {// I changed M_EPSILON to 0
+                s = 0.5 / System.Math.Sqrt(trace+ 1);
+                q.m_q0 = 0.25 / s;
+                q.m_q1 = ( a[2,1] - a[1,2] ) * s;
+                q.m_q2 = ( a[0,2] - a[2,0] ) * s;
+                q.m_q3 = ( a[1,0] - a[0,1] ) * s;
+            } 
+            else 
+            {
+                if ( a[0,0] > a[1,1] && a[0,0] > a[2,2] ) 
+                {
+                    s = 2.0 * System.Math.Sqrt( 1.0 + a[0,0] - a[1,1] - a[2,2]);
+                    q.m_q0 = (a[2,1] - a[1,2] ) / s;
+                    q.m_q1 = 0.25 * s;
+                    q.m_q2 = (a[0,1] + a[1,0] ) / s;
+                    q.m_q3 = (a[0,2] + a[2,0] ) / s;
+                } 
+                else if (a[1,1] > a[2,2]) 
+                {
+                    s = 2.0 * System.Math.Sqrt( 1.0 + a[1,1] - a[0,0] - a[2,2]);
+                    q.m_q0 = (a[0,2] - a[2,0] ) / s;
+                    q.m_q1 = (a[0,1] + a[1,0] ) / s;
+                    q.m_q2 = 0.25f * s;
+                    q.m_q3 = (a[1,2] + a[2,1] ) / s;
+                } 
+                else 
+                {
+                    s = 2.0 * System.Math.Sqrt( 1.0 + a[2,2] - a[0,0] - a[1,1] );
+                    q.m_q0 = (a[1,0] - a[0,1] ) / s;
+                    q.m_q1 = (a[0,2] + a[2,0] ) / s;
+                    q.m_q2 = (a[1,2] + a[2,1] ) / s;
+                    q.m_q3 = 0.25 * s;
+                }
+            }
+            return q;
+        }
 
         public double m_q0;
         public double m_q1;

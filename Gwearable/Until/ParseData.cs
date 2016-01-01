@@ -315,7 +315,8 @@ namespace Gwearable
             tmp = new CQuaternion(HIP.Qworld.m_q0, HIP.Qworld.m_q1, HIP.Qworld.m_q2, HIP.Qworld.m_q3);
             CQuaternion vNeckHip = (HIP.Qworld * NeckHip) * (tmp.Conjugate());
             // Adopt Positioning Data
-            Pos DistHead2Hip = new Pos(0.5 * vNeckHip.m_q1 + 0.20 * vHeadNeck.m_q1, 0.5 * vNeckHip.m_q2 + 0.20 * vHeadNeck.m_q2, 0.5 * vNeckHip.m_q3 + 0.20 * vHeadNeck.m_q3);
+            //Pos DistHead2Hip = new Pos(0.5 * vNeckHip.m_q1 + 0.20 * vHeadNeck.m_q1, 0.5 * vNeckHip.m_q2 + 0.20 * vHeadNeck.m_q2, 0.5 * vNeckHip.m_q3 + 0.20 * vHeadNeck.m_q3);
+            Pos DistHead2Hip = new Pos(0.7 * vNeckHip.m_q1, 0.7 * vNeckHip.m_q2, 0.7 * vNeckHip.m_q3);
             Global.HIP = new Pos(Global.HEAD.x + DistHead2Hip.x, Global.HEAD.y + DistHead2Hip.y, Global.HEAD.z + DistHead2Hip.z);
 
 #region Smoothly Shift Calc-->Abs

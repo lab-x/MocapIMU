@@ -100,7 +100,7 @@ namespace Gwearable
             #endregion
 
             #region AccConvert_Sensor2NED2Avatar   (LATEST)
-           
+    /*       
             Segment S = arraySegment[IDindex];
             CQuaternion Qnow = S.raw.Q;
 
@@ -132,11 +132,14 @@ namespace Gwearable
                 Console.WriteLine("Right:  " + SegmentCollection.arraySegment[15].AccCvt.m_q2.ToString());
                 Global.Fall = true;
             }
+            */
+            #endregion
+
+
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
             #region 12thAug______JUMP
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
            /* if (S.ID == 11)
             {
                 // Console.WriteLine("HIP_Acc:  " + S.AccCvt.ToString());
@@ -251,7 +254,7 @@ namespace Gwearable
             int AccAve = arraySegment[10].AccExceed + arraySegment[11].AccExceed + arraySegment[12].AccExceed + arraySegment[14].AccExceed + arraySegment[15].AccExceed;
       */
            
-            #endregion
+          
 
             /* if ((AccAve > 3) && (Global.JumpFlag == 0))
             {
@@ -310,7 +313,7 @@ namespace Gwearable
 
         public string GetSendString()
         {
-           // Console.WriteLine("EnableSmooth:"+ Global.EnableSmooth+"Smooth:"+Global.Smooth + "    ParaPrev:"+Global.Smooth_PrevParam + " ParaThis"+Global.Smooth_ThisParam);
+          //Console.WriteLine("EnableSmooth:"+ Global.EnableSmooth+"Smooth:"+Global.Smooth + "    ParaPrev:"+Global.Smooth_PrevParam + " ParaThis"+Global.Smooth_ThisParam);
             string str;
             
             #region Switch between Absolute and Dead Reckoning
@@ -323,20 +326,19 @@ namespace Gwearable
                     Position.ExternalPosition();  
                     SegmentCollection.arraySegment[10].Position = Global.HEAD;
                 }*/
-                Pos absPos = new Pos(Global.HEAD.x, Global.HEAD.y, Global.HEAD.z);
-                SegmentCollection.arraySegment[10].Position = new Pos(absPos.x, absPos.y, absPos.z);
+
+                Pos absPos = new Pos(Global.HEAD.x + Global.LeftRight, Global.HEAD.y + Global.LegLength, Global.HEAD.z + Global.FwdBwd);
+                
+                //Position.ExternalPosition();
+                //Pos absPos = new Pos(SegmentCollection.arraySegment[10].Position.x + Global.LeftRight, SegmentCollection.arraySegment[10].Position.y + Global.LegLength, SegmentCollection.arraySegment[10].Position.z + Global.FwdBwd);
+                
                 str = absPos.ToString();
+                //str = SegmentCollection.arraySegment[10].Position.ToString();
             }
             else
             {
                 Position.CalcPosition(1);                                   
-                //SegmentCollection.arraySegment[10].Position.y = 0;
-                //str = SegmentCollection.arraySegment[10].Position.ToString();
-
-                Pos absPos = new Pos(SegmentCollection.arraySegment[10].Position.x, SegmentCollection.arraySegment[10].Position.y + Global.LegLength, SegmentCollection.arraySegment[10].Position.z);
-                //Pos absPos = new Pos(SegmentCollection.arraySegment[10].Position.x, SegmentCollection.arraySegment[10].Position.y, SegmentCollection.arraySegment[10].Position.z);
-                //absPos.y = 0.0;
-                //SegmentCollection.arraySegment[10].Position = new Pos(1, 0, 1);
+                Pos absPos = new Pos(SegmentCollection.arraySegment[10].Position.x + Global.LeftRight, SegmentCollection.arraySegment[10].Position.y + Global.LegLength, SegmentCollection.arraySegment[10].Position.z + Global.FwdBwd);
                 str = absPos.ToString();
             }
          
@@ -359,7 +361,6 @@ namespace Gwearable
                 Position.CalcPosition(1);
             */ 
             #endregion  
-            
             /*str = Global.HEAD.ToString();
             if(Global.isCali){
                 absPos.y = Global.HEAD.y * 0.556 ;
@@ -398,7 +399,7 @@ namespace Gwearable
             str += " ";
             str += "0.00 0.00 0.00";                        //  ＮＥＣＫ
             str += " ";
-            str += arraySegment[8].Eul_Out.ToString();      //  ＨＥＡＤ
+            str += "0.00 0.00 0.00";//arraySegment[8].Eul_Out.ToString();      //  ＨＥＡＤ
             str += " ";
             str += arraySegment[4].Eul_Out.ToString();      //  ＲＩＧＨＴ　ＳＨＯＵＬＤＥＲ
             //arraySegment[4].Eul_Out.ToString(); S.ID = 5;   (NODE Pkt_ID = 13)  

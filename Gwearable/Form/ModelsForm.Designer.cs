@@ -267,6 +267,8 @@
             this.label64 = new System.Windows.Forms.Label();
             this.thirdlab = new System.Windows.Forms.Label();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.button19 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MEMS = new System.Windows.Forms.TabPage();
             this.SendCmdBtn = new System.Windows.Forms.Button();
@@ -349,6 +351,7 @@
             this.tabControl2.SuspendLayout();
             this.标定.SuspendLayout();
             this.SelectStation.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MEMS.SuspendLayout();
             this.Move.SuspendLayout();
@@ -2908,15 +2911,15 @@
             this.label62.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label62.Location = new System.Drawing.Point(6, 71);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(35, 16);
+            this.label62.Size = new System.Drawing.Size(44, 16);
             this.label62.TabIndex = 19;
-            this.label62.Text = "RAW";
+            this.label62.Text = "MAP:";
             // 
             // GPSX
             // 
             this.GPSX.AutoSize = true;
             this.GPSX.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GPSX.Location = new System.Drawing.Point(47, 40);
+            this.GPSX.Location = new System.Drawing.Point(58, 43);
             this.GPSX.Name = "GPSX";
             this.GPSX.Size = new System.Drawing.Size(32, 16);
             this.GPSX.TabIndex = 19;
@@ -2928,15 +2931,15 @@
             this.label63.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label63.Location = new System.Drawing.Point(6, 102);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(35, 16);
+            this.label63.Size = new System.Drawing.Size(44, 16);
             this.label63.TabIndex = 19;
-            this.label63.Text = "MAP";
+            this.label63.Text = "info";
             // 
             // GPSY
             // 
             this.GPSY.AutoSize = true;
             this.GPSY.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GPSY.Location = new System.Drawing.Point(47, 71);
+            this.GPSY.Location = new System.Drawing.Point(60, 71);
             this.GPSY.Name = "GPSY";
             this.GPSY.Size = new System.Drawing.Size(32, 16);
             this.GPSY.TabIndex = 19;
@@ -2946,7 +2949,7 @@
             // 
             this.GPSZ.AutoSize = true;
             this.GPSZ.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.GPSZ.Location = new System.Drawing.Point(48, 102);
+            this.GPSZ.Location = new System.Drawing.Point(60, 102);
             this.GPSZ.Name = "GPSZ";
             this.GPSZ.Size = new System.Drawing.Size(32, 16);
             this.GPSZ.TabIndex = 19;
@@ -2958,9 +2961,9 @@
             this.label61.Font = new System.Drawing.Font("YouYuan", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label61.Location = new System.Drawing.Point(6, 40);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(35, 16);
+            this.label61.Size = new System.Drawing.Size(44, 16);
             this.label61.TabIndex = 19;
-            this.label61.Text = "ID:";
+            this.label61.Text = "RAW:";
             // 
             // tabControl2
             // 
@@ -3154,6 +3157,8 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.textBox18);
+            this.tabPage9.Controls.Add(this.button19);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
@@ -3161,6 +3166,24 @@
             this.tabPage9.TabIndex = 1;
             this.tabPage9.Text = "tabPage9";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(20, 15);
+            this.textBox18.Multiline = true;
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(179, 163);
+            this.textBox18.TabIndex = 1;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(20, 199);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(75, 23);
+            this.button19.TabIndex = 0;
+            this.button19.Text = "button19";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // tabControl1
             // 
@@ -3700,6 +3723,8 @@
             this.标定.PerformLayout();
             this.SelectStation.ResumeLayout(false);
             this.SelectStation.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.MEMS.ResumeLayout(false);
             this.MEMS.PerformLayout();
@@ -3967,5 +3992,7 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.CheckBox Smooth;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.Button button19;
     }
 }

@@ -7,6 +7,9 @@ namespace Gwearable
     {
         public static bool ShouldersNChest = false;//true;
         public static double LegLength = 0;
+        public static double LeftRight = 0;
+        public static double FwdBwd = 0;
+
         public static double BodyUnit = 1.8 / 6.5;
         /************************************************************************/
         /* DEBUG FLAGS                                                          */
@@ -41,6 +44,7 @@ namespace Gwearable
         /************************************************************************/
         /* HIP POSITION and LEVERAGE PEDO    +    ABSOLUTE POSITION AIDING      */
         /************************************************************************/
+        public static byte Info;
         public static bool Smooth = false;
         public static bool EnableSmooth = false;
         public static float Smooth_PrevParam = 3.0f;
@@ -55,6 +59,10 @@ namespace Gwearable
         public static bool NoDataFlag = false;
         public static Matrix TransMat1 = new Matrix(3, 4);  
         public static Matrix TransMat2 = new Matrix(3, 4);
+        public static Matrix TM1_33 = new Matrix(3, 3);
+        public static Matrix TM2_33 = new Matrix(3, 3);
+
+
         public static Matrix TransMat2to1 = new Matrix(3, 4);
         
         public static bool TransMatAvailable = false;
@@ -68,10 +76,15 @@ namespace Gwearable
         public static bool ArrayAvailable = false; 
         public static bool ActivateAbsPos = false;
         public static bool EnableAbsPos = true;
-        public static Pos HIP = new Pos(1,0,1);
-        public static Pos HEAD = new Pos(0,1,0); 
+        public static Pos HIP = new Pos(0, 0, 0);
+        public static Pos HEAD = new Pos(0, 0, 0);
+        public static CQuaternion QHEAD = new CQuaternion(1, 0, 0, 0); 
+        public static Pos HEADRAW = new Pos(0, 0, 0);
+        public static CQuaternion QHEADRAW = new CQuaternion(1, 0, 0, 0);
+        public static CQuaternion QHEADRAWT1 = new CQuaternion(1, 0, 0, 0);
+        public static CQuaternion QHEADRAWT2 = new CQuaternion(1, 0, 0, 0);
+        public static CQuaternion invQHEADRAWT2 = new CQuaternion(1, 0, 0, 0);
 
-        public static Pos HEADRAW = new Pos(1, 1, 1);
         public static int FCflag = 0;
 
         /*   Gait Detector

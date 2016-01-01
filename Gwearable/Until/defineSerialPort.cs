@@ -167,10 +167,13 @@ namespace Gwearable
             CalcEulerOut(7, 6, ref FirstRunFlagArray[6]);
             m_SegmentCollection.Packet_resolver(ArrayData.arr[7], 28);
             CalcEulerOut(8, 7, ref FirstRunFlagArray[7]);
-            if (Global.EnableAbsPos)
+            if (Global.TransMatAvailable)
             {
-                m_SegmentCollection.Packet_resolver(ArrayData.arr[8], 28);
-                CalcEulerOut(9, 10, ref  FirstRunFlagArray[8]);
+                //HEAD
+                //m_SegmentCollection.Packet_resolver(ArrayData.arr[8], 28);  //Not from Mems System, but Positioning System
+                SegmentCollection.arraySegment[8].raw.Q = Global.QHEADRAW;
+                CalcEulerOut(9, 11, ref  FirstRunFlagArray[8]);
+                //CalcEulerOut(9, 10, ref  FirstRunFlagArray[8]);
             }
             //HIP
             m_SegmentCollection.Packet_resolver(ArrayData.arr[10], 28);
@@ -296,7 +299,7 @@ namespace Gwearable
                             // IF Time Out Flag = 0
                             TimeSpan Elps = DateTime.Now - Global.AbsPosSigStart;
                             double Telps = Elps.Ticks / 10000000.0;
-                           if (Telps > 0.03) //0.025)
+                           if (Telps > 0.03)//025) //0.025)
                             {
                                 Global.ActivateAbsPos = false;
                                 Console.WriteLine("DongHead:  NO DATA");
@@ -1705,7 +1708,7 @@ namespace Gwearable
                     if (_va1 == 'T')
                     {
                         Pos PreHEAD = new Pos(Global.HEAD.x,Global.HEAD.y,Global.HEAD.z);
-
+                        CQuaternion PrevQHEAD = new CQuaternion(Global.QHEAD.m_q0, Global.QHEAD.m_q1, Global.QHEAD.m_q2, Global.QHEAD.m_q3);
                         byte[] GPSRawData = new byte[32];
                         for (int i = 0; i < 32;i++ )
                         {
@@ -1720,8 +1723,10 @@ namespace Gwearable
                         Int32 Ypos = 0;
                         Int32 Zpos = 0;
                         int refID = 0;
+                        
                         if ((b3 == b1) && (b5 == 0))
                         {
+                            Global.Info = GPSRawData[2];
                             refID = 1; 
                             Global.Station1 = false;
                             Global.Station0 = true;
@@ -1730,11 +1735,17 @@ namespace Gwearable
                             Ypos = BitConverter.ToInt32(GPSRawData, 7);
                             Zpos = BitConverter.ToInt32(GPSRawData, 11);
                             Global.HEADRAW = new Pos(Xpos / 10000.0f, Ypos / 10000.0f, Zpos / 10000.0f);
-                            
+                            Int32 XQuat = BitConverter.ToInt32(GPSRawData, 15);
+                            Int32 YQuat = BitConverter.ToInt32(GPSRawData, 19);
+                            Int32 ZQuat = BitConverter.ToInt32(GPSRawData, 23);
+                            Int32 WQuat = BitConverter.ToInt32(GPSRawData, 27); 
+                            Global.QHEADRAW = new CQuaternion(WQuat / 10000.0f, XQuat / 10000.0f, YQuat / 10000.0f, ZQuat / 10000.0f);
+                            Global.QHEADRAW.Normalize();
                             //Console.WriteLine("0：  " + Global.HEADRAW.ToString());
                         } 
-                        else if ((b3 == 0x00) && (b5 == 0))
+                        else if ((b3 == 0x00) && (b5 == 0)) 
                         {
+                            Global.Info = GPSRawData[2];
                             refID = 2;
                             Global.Station1 = true;
                             Global.Station0 = false;
@@ -1743,33 +1754,34 @@ namespace Gwearable
                             Ypos = BitConverter.ToInt32(GPSRawData, 7);
                             Zpos = BitConverter.ToInt32(GPSRawData, 11);
                             Global.HEADRAW = new Pos(Xpos / 10000.0f, Ypos / 10000.0f, Zpos / 10000.0f);
+                            Int32 XQuat = BitConverter.ToInt32(GPSRawData, 15);
+                            Int32 YQuat = BitConverter.ToInt32(GPSRawData, 19);
+                            Int32 ZQuat = BitConverter.ToInt32(GPSRawData, 23);
+                            Int32 WQuat = BitConverter.ToInt32(GPSRawData, 27);
+                            Global.QHEADRAW = new CQuaternion(WQuat / 10000.0f, XQuat / 10000.0f, YQuat / 10000.0f, ZQuat / 10000.0f);
+                            Global.QHEADRAW.Normalize();
+                            SegmentCollection.arraySegment[8].raw.Q = Global.QHEADRAW;
                             //Console.WriteLine("1：  " + Global.HEADRAW.ToString());
                         }
                         else
                         { 
-                            //Console.WriteLine("????" );
-                            //Global.NoDataFlag = true;
-                            //Global.Station1 = false;
-                            //Global.Station0 = false;
-                            //return;
-                        }
-
-
-#region TransMat Available
+                            //Console.WriteLine("????" ); //Global.NoDataFlag = true;  //Global.Station1 = false; //Global.Station0 = false; //return;
+                        } 
+                        #region TransMat Available
                         if (Global.TransMatAvailable)
-                        {
-                            Matrix raw = new Matrix(4, 1);
-                            raw[0, 0] = Xpos / 10000.0f;
-                            raw[1, 0] = Ypos / 10000.0f;
-                            raw[2, 0] = Zpos / 10000.0f;
-                            raw[3, 0] = 1;
+                        { 
+                            Matrix Praw = new Matrix(4, 1);
+                            Praw[0, 0] = Global.HEADRAW.x;
+                            Praw[1, 0] = Global.HEADRAW.y;
+                            Praw[2, 0] = Global.HEADRAW.z;
+                            Praw[3, 0] = 1;
+                             
                             if (refID == 1)  //&& Global.Station1 == false)  // 塔号
                             {
                                 Global.Station0 = true;
                                 Global.Station1 = false;
-                                Matrix head = Global.TransMat1 * raw;
-                                Global.HEAD = new Pos(-head[2, 0], head[1, 0], head[0, 0]);
-                                //Global.HEAD = new Pos(-head[0, 0], head[1, 0], -head[2, 0]);
+                                Matrix head = Global.TransMat1 * Praw;
+                                Global.HEAD = new Pos(-head[2, 0], head[1, 0], head[0, 0]);  
                                 Console.WriteLine("Dong1." + "MAPPED:  " + Global.HEAD.ToString());
                                 if (Global.EnableSmooth)
                                     Global.Smooth = true;
@@ -1780,33 +1792,38 @@ namespace Gwearable
                             {
                                 Global.Station1 = true;
                                 Global.Station0 = false;
-                                Matrix head = Global.TransMat2 * raw;
-                                Global.HEAD = new Pos(-head[2, 0], head[1, 0], head[0, 0]);
-                                //Global.HEAD = new Pos(-head[0, 0], head[1, 0], -head[2, 0]);
+                                Matrix head = Global.TransMat2 * Praw; 
+                                Global.HEAD = new Pos(-head[2, 0], head[1, 0], head[0, 0]); //Global.HEAD = new Pos(-head[0, 0], head[1, 0], -head[2, 0]);
+                 
                                 Console.WriteLine("Dong2." + "MAPPED:  " + Global.HEAD.ToString());
                                 if (Global.EnableSmooth)
                                     Global.Smooth = true;
                                 else
                                     Global.Smooth = false;
                             }
-                        } 
-#endregion
+                            if (Global.HEAD.x > 10 || Global.HEAD.y > 10 || Global.HEAD.z > 10)
+                            {
+                                Global.HEAD = PreHEAD;
+                            }
 
-#region TransMat UnAvailable
+                        } 
+                        #endregion
+
+                        #region TransMat UnAvailable
                         else if(refID != 0)
                         {
                             Global.HEAD = Global.HEADRAW;
+                            Global.QHEAD = Global.QHEADRAW;
                             Console.WriteLine("LightHouse-" + refID + ":    " + Global.HEADRAW.ToString());
                         } 
-#endregion
+                        #endregion
 
-                        
                         //NOTE:此处得到的xyz pos值是0.1毫秒级别，四元数是扩大10000倍之后的整数。使用的时候需要作相应的除法。
-           
-                        #region HEAD Position De-Quiver
+                        #region HEAD Position and Attitude De-Quiver
                         if (Global.Smooth)
                         {
-                            if (System.Math.Abs(PreHEAD.x - Global.HEAD.x) < 0.01)
+                            #region Position 
+		                    if (System.Math.Abs(PreHEAD.x - Global.HEAD.x) < 0.01)
                             {
                                 Global.HEAD.x = PreHEAD.x;
                             }
@@ -1821,25 +1838,13 @@ namespace Gwearable
                             Global.HEAD.x = (Global.Smooth_PrevParam * PreHEAD.x + Global.Smooth_ThisParam * Global.HEAD.x) / (Global.Smooth_ThisParam + Global.Smooth_PrevParam);
                             Global.HEAD.y = (Global.Smooth_PrevParam * PreHEAD.y + Global.Smooth_ThisParam * Global.HEAD.y) / (Global.Smooth_ThisParam + Global.Smooth_PrevParam);
                             Global.HEAD.z = (Global.Smooth_PrevParam * PreHEAD.z + Global.Smooth_ThisParam * Global.HEAD.z) / (Global.Smooth_ThisParam + Global.Smooth_PrevParam);
-                            //Global.HEAD.x = (3 * PreHEAD.x + Global.HEAD.x) / 4;
-                            //Global.HEAD.y = (3 * PreHEAD.y + Global.HEAD.y) / 4;
-                            //Global.HEAD.z = (3 * PreHEAD.z + Global.HEAD.z) / 4;
+                            #endregion 
+      
                         }
-                      #endregion
+                        #endregion    
                         
                         m_GPSPointCollection.Add(new Vector3(Xpos/10000.0f, Ypos/10000.0f, Zpos/10000.0f)); //米 ---级别的精度值
-
-
-                        Int32 XQuat = BitConverter.ToInt32(GPSRawData, 15);
-                        Int32 YQuat = BitConverter.ToInt32(GPSRawData, 19);
-                        Int32 ZQuat = BitConverter.ToInt32(GPSRawData, 23);
-                        Int32 WQuat = BitConverter.ToInt32(GPSRawData, 27);
-
-                        //四元数赋值
-                        SegmentCollection.arraySegment[8].raw.Q.m_q0 = -XQuat / 10000.0f;
-                        SegmentCollection.arraySegment[8].raw.Q.m_q1 = YQuat / 10000.0f;
-                        SegmentCollection.arraySegment[8].raw.Q.m_q3 = ZQuat / 10000.0f;
-                        SegmentCollection.arraySegment[8].raw.Q.m_q2 = WQuat / 10000.0f;
+                          
                         Global.AbsPosSigStart = DateTime.Now;
                         Global.ActivateAbsPos = true;
                         //Console.WriteLine("Dong.Head: "+ Global.HEAD.ToString());
@@ -1988,7 +1993,7 @@ namespace Gwearable
         public void InitSerialPort(SerialPort port, string portname)
         {
             port.PortName = portname;
-            port.BaudRate = 115200;       //波特率
+            port.BaudRate = 115200;        //波特率
             port.Parity = Parity.None;    //无奇偶校验位
             port.StopBits = StopBits.One; //1个停止位
             port.DataBits = 8;            //数据位
